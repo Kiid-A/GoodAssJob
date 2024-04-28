@@ -24,7 +24,7 @@ Connection::Connection(EventLoop* loop, int sockfd, const InetAddr& localAddr, c
 
 Connection::~Connection()
 {
-    printf("Connection::Detroyer at fd %d state %d\n", channel_->fd(), static_cast<int>(state_));
+    printf("Connection::Destroyer at fd %d state %d\n", channel_->fd(), static_cast<int>(state_));
 }
 
 void Connection::send(Buffer* message)

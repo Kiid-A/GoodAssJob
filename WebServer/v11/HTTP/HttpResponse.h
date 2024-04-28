@@ -1,10 +1,15 @@
 #pragma once
 
-#include<unordered_map>
-#include<string>
+#include <unordered_map>
+#include <string>
+#include <fstream>
+#include <iostream>
+#include <filesystem>
 
 using std::string;
 class Buffer;
+
+namespace fs = std::filesystem;
 
 /*  HttpResponse
     Add INFO in response: request line + Status
@@ -29,7 +34,7 @@ private:
     string body_;
 
 public:
-    explicit HttpResponse(bool close)
+    explicit HttpResponse(bool close, std::fstream& body, string& contentType)
         :statusCode_(HttpStatusCode::Unknown),
         isConnectionClosed_(close)
     {}
@@ -46,7 +51,15 @@ public:
     void setContentType(const string& contentType) { addHeader("Content-Type", contentType); }
     void addHeader(const string& key, const string& value) { headers_[key] = value; }
     /* set HTML body */
-    void setBody(const string& body) { body_ = body; }
+    void setBody(string filePath)
+    {   
+        string buf;
+        std::ifstream infile;
+        infile.open(filePath, std::ios::in);
+        while (getline(infile, buf)) {
+            body_ += buf + "\r\n";
+        }
+    }
     // append response to buffer
     void appendToBuffer(Buffer* output) const;
 };

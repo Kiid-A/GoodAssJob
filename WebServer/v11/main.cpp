@@ -4,6 +4,8 @@
 #include "HTTP/HttpRequest.h"
 #include "HTTP/HttpResponse.h"
 #include "HTTP/HttpServer.h"
+#include "HTTP/HttpMessage.h"
+
 #include <stdio.h>
 #include <functional>
 #include <thread>
@@ -14,35 +16,7 @@ using namespace std;
 
 extern char favicon[555];
 
-// 
-void onRequest(const HttpRequest& req, HttpResponse* resp)
-{	
-	// root dir for test
-	if (req.getPath() == "/") {
-		resp->setStatusCode(HttpResponse::HttpStatusCode::Ok);
-		resp->setStatusMessage("OK");
-		resp->setContentType("text/html");
-		resp->addHeader("Server", "li");
-		resp->setBody(
-			"<html><head><title>This is title</title></head>"
-			"<body><h1>HOHO</h1>I\'m zhangzijian\'s father" 
-			"</body></html>");
-	} else if(req.getPath()=="/favicon.ico") {
-		resp->setStatusCode(HttpResponse::HttpStatusCode::Ok);
-		resp->setStatusMessage("OK");
-		resp->setContentType("image/png");
-		resp->setBody(string(favicon, sizeof(favicon)));
-	} else if (req.getPath() == "/hello") {
-		resp->setStatusCode(HttpResponse::HttpStatusCode::Ok);
-		resp->setStatusMessage("OK");
-		resp->setContentType("text/plain");
-		resp->setBody("hello, world!\n");
-	} else {
-		resp->setStatusCode(HttpResponse::HttpStatusCode::NotFound);
-		resp->setStatusMessage("Not Found");
-		resp->setCloseConnection(true);
-	}
-}
+// 123456544
 
 int main(int argc, char* argv[])
 {
@@ -134,52 +108,5 @@ char favicon[555] = {
   'B', '\x60', '\x82',
 };
 
-// void log_test()
-// {
-
-// 	std::thread t1([]() {
-// 		for (int i = 0; i < 900000; ++i)
-// 			LOG_INFO << "1111woshisdfsd " << 23 << 34 << "buox";
-// 		});
-// 	t1.detach();
-// 	std::thread t2([]() {
-// 		for (int i = 0; i < 1010000; ++i)
-// 			//LOG_DEBUG << "22woshisdfsd " << 23 << 34 << "buox";
-// 			LOG_INFO << "wo是log_info�?" << 555 << " test";
-// 		});
-// 	t2.detach();
-// 	for (int i = 0; i < 1010000; ++i)
-// 		LOG_INFO << 11 << "中国�?" << 23;
-// 	std::this_thread::sleep_for(std::chrono::seconds(3));
-// }
-
-// int main()
-// {
-	
-// 	log_test();
-	
-// 	InetAddr servAddr(10000);
-// 	EventLoop loop;
-// 	Server server(servAddr, &loop);
-
-// 	server.setConnectionCallBack([](const ConnectionPtr& conn) {
-// 		if (conn->isConnected()) {
-// 			printf("Connection connected ip:port: %s  connected..\n", conn->peerAddress().toIpPort().c_str());
-// 		} else {
-// 			printf("Connection disconnected\n");
-// 		}
-// 	});
-
-// 	server.setMessageCallBack([](const ConnectionPtr& conn, Buffer* buf) {
-// 			std::string msg(buf->retrieveAllString());
-// 			printf("onMessage() %ld bytes reveived:%s\n", msg.size(), msg.c_str());
-// 			conn->send(msg);
-// 	});
-    
-// 	server.start(2);
-// 	loop.loop();
-
-// 	return 0;
-// }
 
 

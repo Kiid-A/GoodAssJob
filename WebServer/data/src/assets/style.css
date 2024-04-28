@@ -1,0 +1,296 @@
+* {
+    margin: 0;
+    padding: 0;
+    /*标准盒子 */
+    box-sizing: border-box;
+}
+
+body,
+html {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f8f8f8;
+    /* 锁定背景： */
+    background-attachment: fixed;
+    /* 弹性布局 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin: 0 auto;
+}
+
+h1 {
+    margin: 0.2rem;
+    font-size: 1.2rem;
+}
+
+p {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    /* 字体变淡 */
+    font-weight: 100;
+    margin: 1.2rem 0;
+    /* 字间距 */
+    letter-spacing: 0.1rem;
+}
+
+span {
+    font-size: 0.8rem;
+    margin: 1.2rem 0;
+}
+
+a {
+    color: #333;
+    font-size: 1rem;
+    /* 下划线消失 */
+    text-decoration: none;
+}
+
+.container {
+    /* 相对定位 */
+    position: relative;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    padding: 0.6rem;
+    width: 50rem;
+    height: 35rem;
+    /* 溢出隐藏 */
+    overflow: hidden;
+    max-width: 100vw;
+    min-height: 70vh;
+}
+
+.form-container form {
+    background: #fff;
+    /* 弹性布局 */
+    display: flex;
+    flex-direction: column;
+    padding: 0 1.8rem;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.social-container {
+    margin: 0.6rem 0;
+}
+
+.social-container a {
+    border: 1px solid #eee;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5px;
+    height: 1.8rem;
+    width: 1.8rem;
+}
+
+.social-container a:hover {
+    opacity: 0.8;
+}
+
+.form-container input {
+    width: 100%;
+    height: 2.2rem;
+    text-indent: 1rem;
+    border: 1px solid #ccc;
+    /* 把input上左右边框取消 */
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    /* 点击input边框消失 */
+    outline: none;
+    margin: 0.6rem 0;
+}
+
+/* 被选中时候缩小 */
+.form-container button:active {
+    transform: scale(0.95, 0.95);
+}
+
+.form-container button {
+    padding: 0.4rem 1rem;
+    background: #417dff;
+    color: white;
+    border: 1px solid #fff;
+    outline: none;
+    /* 鼠标放上变小手 */
+    cursor: pointer;
+    width: 5rem;
+    border-radius: 8px;
+    transition: all 100ms ease-in;
+    margin: 0.6rem 0;
+    font-size: 0.6rem;
+    padding: 0.5rem 0;
+}
+
+button#send_code {
+    width: 100%;
+}
+
+button.ghost {
+    background: transparent;
+    border-color: #fff;
+    border: 1px solid #fff;
+    outline: none;
+    cursor: pointer;
+    width: 5rem;
+    border-radius: 8px;
+    transition: all 800ms ease-in;
+    margin: 0.6rem 0;
+    padding: 0.5rem 0;
+    color: white;
+    font-size: 0.6rem;
+}
+
+button.ghost:active {
+    transform: scale(0.95, 0.95);
+}
+
+.form-container {
+    /* 绝对定位 */
+    position: absolute;
+    top: 0;
+    height: 100%;
+    transition: all 0.5s ease-in;
+
+}
+
+.sing-in-container {
+    left: 0;
+    width: 50%;
+    z-index: 2;
+}
+
+.sign-up-container {
+    left: 0;
+    width: 50%;
+    opacity: 0;
+    z-index: 1;
+}
+
+.overlay {
+    background: #417dff;
+    width: 200%;
+    height: 100%;
+    position: relative;
+    left: -100%;
+    transition: all 0.6s ease-in-out;
+    color: white;
+}
+
+.overlay-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: all 0.6s ease-in-out;
+    z-index: 99;
+}
+
+.overlay-pannel {
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+    padding: 0 2.2rem;
+}
+
+.overlay-right {
+    right: 0;
+}
+
+.container.right-panel-active .overlay-container {
+    transform: translateX(-100%);
+}
+
+.container.right-panel-active .sing-in-container {
+    transform: translateX(100%);
+}
+
+.container.right-panel-active .sign-up-container {
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 5;
+    transition: all 0.6s ease-in-out;
+}
+
+.container.right-panel-active .overlay {
+    transform: translateX(50%);
+}
+
+.container.right-panel-active .overlay-left {
+    transform: translateX(0);
+    transition: all 0.6s ease-in-out;
+}
+
+.container.right-panel-active .overlay-right {
+    transform: translateX(20%);
+    transition: all 0.6s ease-in-out;
+}
+
+html {
+    height: 100%;
+
+}
+
+/* 使用渐变背景突出游学主题 */
+body,
+html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #cae9ff 25%, #f8f8f8 25%, #f8f8f8 50%, #cae9ff 50%, #cae9ff 75%, #f8f8f8 75%, #f8f8f8);
+    background-size: 56.57px 56.57px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    /* 在这里添加阴影和边框以提升美观 */
+    box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.1);
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+}
+
+.overlay-container {
+    /* 对侧边栏使用深色调以增强对比 */
+    background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+}
+
+/* 你可以添加一些伪元素来创建装饰性图标或形状 */
+
+
+.overlay-container::after {
+    content: '🗺️';
+    /* 使用地图emoji作为旅行主题的装饰 */
+    font-size: 3em;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+.container::before {
+    content: "一起去游学！🎒";
+    position: absolute;
+    top: 20px;
+    /* 根据页面实际布局调整这里的值 */
+    left: 20px;
+    /* 根据页面实际布局调整这里的值 */
+    font-size: 2em;
+    color: #41ff4781;
+    /* 选择一个与你的设计匹配的颜色 */
+    font-weight: bold;
+    z-index: 100;
+}
