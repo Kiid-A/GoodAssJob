@@ -28,7 +28,7 @@ void Epoll::updateChannel(Channel* ch)
     ev.data.ptr = ch;   // point to channel
     ev.events = ch->event();
 
-    // 表示ch在表上
+    // if channel in epoll table
     if(ch->isInEpoll()) {
         // if ch does not listen to fd, we shall delete it in order to free thread
         if(ch->isNone()) {

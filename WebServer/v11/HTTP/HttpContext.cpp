@@ -2,11 +2,66 @@
 #include "../include/Buffer.h"
 
 // request line -> header -> context body /cycling
+bool HttpContext::parseRequest(Buffer* buf, Timestamp receiveTime)
+{
+	bool ok = true;
+	bool hasMore = true;
+	
+	while (hasMore) {
+        // RequestLine: POST "some URL string" HTTP/1.1 200 OK
+		if (state_ == HttpRequestParseState::ExpectRequestLine) {
+            // locate first \r\n
+			const char* crlf = buf->findCRLF();
+			if (crlf) {
+                // parse successfully, then parse URL
+				ok = processRequestLine(buf->peek(), crlf);
+				if (ok) {
+                    // overlook \r\n
+					request_.setReceiveTime(receiveTime);
+					buf->retrieveUntil(crlf + 2);
+					state_ = HttpRequestParseState::ExpectHeaders;
+				} else {
+					hasMore = false;
+				}
+			} else {
+				hasMore = false;
+			}
+        // Header: XXXX:YYYY
+		} else if (state_ == HttpRequestParseState::ExpectHeaders) {
+			const char* crlf = buf->findCRLF();
+			if (crlf) {
+                // find new line --> get header & value then create pair
+				const char* colon = std::find(buf->peek(), crlf, ':');
+				if (colon != crlf) {
+					request_.addHeader(buf->peek(), colon, crlf);
+                // colon == crlf means function find return the last value, colon not found
+				} else {
+					state_ = HttpRequestParseState::ExpectBody;
+				}
+				buf->retrieveUntil(crlf + 2);
+            // crlf not found, no more to read
+			} else {
+				hasMore = false;
+			}
+        // Body: a chunk of data
+		} else if (state_ == HttpRequestParseState::ExpectBody) {
+            // buffer still has data --> that is body/query
+			if (buf->readableByte()) {
+				request_.setQuery(buf->peek(), buf->writerBegin());
+			}
+            // has come to an end
+			state_ = HttpRequestParseState::GotAll;
+			hasMore = false;
+		}
+	}
+	return ok;
+}
+
 bool HttpContext::parseRequest(Buffer* buf)
 {
 	bool ok = true;
 	bool hasMore = true;
-	printf("HttpContext::parseReques:buf:\n%s\n",buf->peek());
+	
 	while (hasMore) {
         // RequestLine: POST "some URL string" HTTP/1.1 200 OK
 		if (state_ == HttpRequestParseState::ExpectRequestLine) {

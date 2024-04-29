@@ -2,7 +2,8 @@
 #include "EventLoop.h"
 
 EventLoopThread::EventLoopThread()
-    :loop_(nullptr)
+    :loop_(nullptr),
+    thread_([this]() { threadFunc(); })
 {}
 
 EventLoopThread::~EventLoopThread()
@@ -33,8 +34,8 @@ void EventLoopThread::threadFunc()
 
 EventLoop* EventLoopThread::startLoop()
 {
-    thread_ = std::move(std::thread([this]() { threadFunc(); }));
-
+    thread_.start();
+    // wait for establish of loop
     {
         std::unique_lock<std::mutex> lock(mutex_);
         while(loop_ == nullptr) {

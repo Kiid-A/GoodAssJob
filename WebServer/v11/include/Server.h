@@ -13,8 +13,9 @@
 #include "ThreadPool.h"
 #include "TimerQueue.h"
 #include "../log/Logger.h"
-#include<memory>
-#include<map>
+
+#include <memory>
+#include <map>
 
 class Server
 {
@@ -52,7 +53,6 @@ private:
 public:
     Server(const InetAddr& listenAddr, EventLoop* eventLoop);
     ~Server();
-    // void handleEvent(Channel* ch); --> Connection
     
     void start(int numOfIOTHreads = 0, int numOfComputeThreads = 0);
 

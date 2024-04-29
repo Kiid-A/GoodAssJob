@@ -5,6 +5,7 @@
 #include "Socket.h"
 #include "Channel.h"
 #include "InetAddr.h"
+#include "../log/Logger.h"
 #include <memory.h>
 #include <atomic>
 #include <any>
@@ -21,11 +22,16 @@ class Channel;
 class Connection: public std::enable_shared_from_this<Connection>
 {
 public:
-    enum class State { Disconnected, Connecting, Connected, Disconnecting };
+    enum class State { 
+        Disconnected, 
+        Connecting, 
+        Connected, 
+        Disconnecting       // ready to switch to Disconnected
+    };
 
 private:
     EventLoop* loop_;
-    State state_;   // --> use atomic variable
+    State state_;   // future upd --> use atomic method
 
     std::unique_ptr<Socket> clieSock_;
     std::unique_ptr<Channel> channel_;
@@ -41,9 +47,10 @@ private:
     Buffer inputBuffer_;
     Buffer outputBuffer_;
 
-    // used for http parse
+    // used to parse HTTP protocol
     std::any context_;
 
+    // cb func
     void handleRead();
     void handleWrite();
     void handleClose();
@@ -54,10 +61,12 @@ private:
     void shutdownInLoop();
     void forceCloseInLoop();
 
+    void setState(State state) { state_ = state; }
+
 public:
-    // Connection(EventLoop* loop, int sockfd);
     Connection(EventLoop* loop, int sockfd, const InetAddr& localAddr, const InetAddr& peerAddr);
     ~Connection();
+
     EventLoop* getLoop() const { return loop_; };
 
     void setMessageCallBack(const MessageCallBack& cb)
@@ -85,7 +94,6 @@ public:
 
     bool isConnected() const { return state_ == State::Connected; };
     bool isDisconnected() const { return state_ == State::Disconnected; };
-    void setState(State state) { state_ = state; };
 
     // 3 ways to send message
     void send(Buffer* message);

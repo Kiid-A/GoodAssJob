@@ -1,20 +1,19 @@
 #include "Acceptor.h"
 
 Acceptor::Acceptor(const InetAddr& listenAddr, EventLoop* loop)
-    :loop_(loop)
-    ,acceptSock_(Socket())
-    ,acceptCh_(loop_, acceptSock_.fd())
-    ,listen_(false)
+    :loop_(loop),
+    acceptSock_(Socket()),
+    acceptCh_(loop_, acceptSock_.fd()),
+    isListen_(false)
 {
+    sockets::setReuseAddr(acceptSock_.fd());
     acceptSock_.bind(listenAddr);
-    auto cb = [this]() { handleRead(); };
-
-    acceptCh_.setReadCallBack(cb);
-    this->listen();
+    acceptCh_.setReadCallBack([this]() { handleRead(); });
 }
 
 Acceptor::~Acceptor()
-{
+{   
+    acceptCh_.disableAll();
     acceptCh_.remove();
 }
 
@@ -22,6 +21,7 @@ void Acceptor::listen()
 {
     acceptSock_.listen();
     acceptCh_.enableReading();
+    isListen_ = true;
 }
 
 void Acceptor::handleRead()
@@ -33,6 +33,6 @@ void Acceptor::handleRead()
             newConnectionCallBack_(connectfd, peerAddr);
         }
     } else {
-        printf("Acceptor::handleRead error\n");
+        LOG_ERROR << "ACCEPT ERROR";
     }
 }

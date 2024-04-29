@@ -7,6 +7,7 @@
 // Tid = ThreadId
 namespace CurrentThread
 {
+    // internal
     extern thread_local int cachedTid_;
     extern thread_local char tidString_[32];
     extern thread_local int tidLength_;

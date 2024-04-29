@@ -9,7 +9,6 @@
 using std::string;
 class Buffer;
 
-namespace fs = std::filesystem;
 
 /*  HttpResponse
     Add INFO in response: request line + Status
@@ -34,7 +33,7 @@ private:
     string body_;
 
 public:
-    explicit HttpResponse(bool close, std::fstream& body, string& contentType)
+    explicit HttpResponse(bool close)
         :statusCode_(HttpStatusCode::Unknown),
         isConnectionClosed_(close)
     {}

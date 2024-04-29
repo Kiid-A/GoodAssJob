@@ -1,7 +1,7 @@
 #pragma once
-#include<vector>
-#include<memory>
-#include<functional>
+#include <vector>
+#include <memory>
+#include <functional>
 
 class EventLoop;
 class EventLoopThread;
@@ -12,7 +12,7 @@ class EventLoopThreadPool
 {
 private:
     // same to acceptor's loop
-    EventLoop* baseloop_; 
+    EventLoop* baseLoop_; 
 
     bool started_;
     int numOfThreads_;

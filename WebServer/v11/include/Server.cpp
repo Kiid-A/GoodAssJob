@@ -4,8 +4,7 @@
 #include<string.h>
 
 Server::Server(const InetAddr& listenAddr, EventLoop* eventLoop)
-    :
-    loop_(eventLoop),
+    :loop_(eventLoop),
     acceptor_(std::make_unique<Acceptor>(listenAddr, loop_)),
     ipPort_(listenAddr.toIpPort()),
     started_(0),
@@ -48,7 +47,7 @@ void Server::newConnection(int sockfd, const InetAddr& peerAddr)
     InetAddr localAddr(sockets::getLocalAddr(sockfd));
 
     // not in server loop but ioloop
-    // btw, conn is stack variable
+    // btw, conn is a stack variable
     auto conn = std::make_shared<Connection>(IOLoop, sockfd, localAddr, peerAddr);
     connections_[sockfd] = conn;
 
@@ -63,13 +62,14 @@ void Server::newConnection(int sockfd, const InetAddr& peerAddr)
     IOLoop->runInLoop([conn]() { conn->establishConnection(); });
 }
 
-/*  About shared_from_this()
+/*  
+    About shared_from_this()
     std::bind(): IOLoop->runInLoop(std::bind(&Connection::establishConnection, conn));
     std::bind() will copy conn, so that share_ptr++
 
     cond1: IOLoop->runInLoop([&conn]() { conn->establishConnection(); });
     it's reference of conn, shared_ptr do not ++
-    however, conn is stack variable, we want to extend its lifetime
+    however, conn is a stack variable, we want to extend its lifetime
 
     cond2: IOLoop->runInLoop([this, sockfd]() { connections_[sockfd]->establishConnection(); });
     the lifetime of class Server::connections_ is longer than conn
@@ -87,7 +87,8 @@ void Server::removeConnectionInLoop(const ConnectionPtr& conn)
     auto IOLoop = conn->getLoop();
     IOLoop->queueInLoop([conn]() { conn->destroyConnection(); });
 }
-/*  why we use queue?
+/*  
+    why we use queue?
     in EventLoop:
     while(!quit_) {
         epTable_.clear();
@@ -97,7 +98,7 @@ void Server::removeConnectionInLoop(const ConnectionPtr& conn)
         }
         doPendingFunctors();
     }
-    only when we have handled all task can we handle those in queue.
+    only when we have handled all tasks can we handle those in queue.
     if we call runInLoop directly, conn->ch may be destoryed. 
 
     want remove/quit? find remove/quit

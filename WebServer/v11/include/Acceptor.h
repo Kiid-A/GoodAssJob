@@ -1,9 +1,12 @@
 #pragma once
 
 #include<functional>
+
 #include "InetAddr.h"
 #include "Socket.h"
 #include "Channel.h"
+#include "util.h"
+#include "../log/Logger.h"
 
 /*  Acceptor
     server can be divided into 2 parts: connect with client & handle event
@@ -27,7 +30,7 @@ private:
     Channel acceptCh_;
     NewConnectionCallBack newConnectionCallBack_;
 
-    bool listen_;
+    bool isListen_;
 
 public:
     Acceptor(const InetAddr& listenAddr, EventLoop* loop);

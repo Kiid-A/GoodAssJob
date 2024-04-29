@@ -35,7 +35,7 @@ public:
 
     bool isAllGot() const { return state_ == HttpRequestParseState::GotAll; }
 
-    // recycle HttpContext
+    // reuse HttpContext
     void reset()
     {
         state_ == HttpRequestParseState::ExpectRequestLine;

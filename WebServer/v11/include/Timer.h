@@ -22,11 +22,11 @@ private:
 
 public:
     Timer(TimerCallBack cb, Timestamp when, double interval)
-        :callback_(cb)
-        ,expiration_(when)
-        ,interval_(interval)
-        ,repeat_(interval > 0.0)
-        ,sequence_(numCreated_++)
+        :callback_(cb),
+        expiration_(when),
+        interval_(interval),
+        repeat_(interval > 0.0),
+        sequence_(numCreated_++)
     {}
 
     void run() const { return callback_(); }

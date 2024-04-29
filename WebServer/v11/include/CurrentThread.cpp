@@ -3,6 +3,7 @@
 
 namespace CurrentThread
 {
+	// internal
     thread_local int cachedTid_ = 0;
 	thread_local char tidString_[32];
 	thread_local int tidLength_ = 6;

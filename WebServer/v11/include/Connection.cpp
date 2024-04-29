@@ -14,7 +14,7 @@ Connection::Connection(EventLoop* loop, int sockfd, const InetAddr& localAddr, c
     ,localAddr_(localAddr)
     ,peerAddr_(peerAddr_)
 {
-    // set W/R call back
+    // set W/R ERR/CLOSE call back
     channel_->setReadCallBack([this]() { handleRead(); });
     channel_->setWriteCallBack([this]() { handleWrite(); });
 
@@ -24,7 +24,8 @@ Connection::Connection(EventLoop* loop, int sockfd, const InetAddr& localAddr, c
 
 Connection::~Connection()
 {
-    printf("Connection::Destroyer at fd %d state %d\n", channel_->fd(), static_cast<int>(state_));
+    LOG_INFO << "Connection::Destroyer at fd " << channel_->fd() << 
+                 " state " << static_cast<int>(state_);
 }
 
 void Connection::send(Buffer* message)
@@ -40,7 +41,7 @@ void Connection::send(const std::string& message)
 
 // regularize usage of send
 // if in loop -> send directly 
-// else save cb in loop and wait for IO thread
+// else queue cb in loop and wait for IO thread
 void Connection::send(const char* message, size_t len)
 {
     if(state_ == State::Connected) {
@@ -110,6 +111,7 @@ void Connection::destroyConnection()
     }
 
     channel_->remove();
+    LOG_DEBUG << "Connection " << fd() << " destroyed";
 }
 
 void Connection::handleRead()
@@ -117,9 +119,14 @@ void Connection::handleRead()
     int saveErrno = 0;
     auto n = inputBuffer_.readfd(fd(), &saveErrno);
     
+    // we got something to send
     if(n > 0) {
         // call back function. awesome man!
         messageCallBack_(shared_from_this(), &inputBuffer_);
+        // update buffer after reading. if not, remnent data may pollute buffer
+        inputBuffer_.retrieve(inputBuffer_.readableByte());
+
+    // nothing indicates that client has closed connection    
     } else if(n == 0) {
         handleClose();
     } else {
@@ -130,7 +137,7 @@ void Connection::handleRead()
 void Connection::handleWrite()
 {
     if(!channel_->isWrite()) {
-        printf("connection fd %d is down\n", channel_->fd());
+        LOG_INFO << "connection fd " << channel_->fd() << " is down";
         return;
     }
 
@@ -142,10 +149,10 @@ void Connection::handleWrite()
         if(outputBuffer_.readableByte() == 0) {
             channel_->disableWriting();
         } else {
-            printf("read to write more data\n");
+            LOG_DEBUG << "read to write more data";
         }
     } else {
-        printf("handleWrite error\n");
+        LOG_ERROR << "handleWrite error";
     }   
 }
 
@@ -158,19 +165,20 @@ void Connection::handleClose()
     ConnectionPtr guardThis(shared_from_this());
     // call user's connectionCallBack_
     connectionCallBack_(guardThis);
-
+    LOG_DEBUG << "Connection::handleClose()";
     closeCallBack_(guardThis);
 }
 
 void Connection::handleError()
 {
     int err = sockets::getSocketError(channel_->fd());
-    printf("Connection::handleError err %d\n", err);
+    LOG_DEBUG << "Connection::handleError err " << err;
 }
 
 void Connection::sendInLoop(const char* message, size_t len)
 {
     if(state_ == State::Disconnected) {
+        LOG_DEBUG << "client fd: " << channel_->fd() <<" disconnected";
         return;
     }
 
@@ -178,7 +186,7 @@ void Connection::sendInLoop(const char* message, size_t len)
     ssize_t nwrote = 0;
     size_t remain = len;
 
-    // no write in ch, no bytes in outputbuf
+    // no write in channel && no bytes in outputbuf, send immediately
     if(!channel_->isWrite() && outputBuffer_.readableByte() == 0) {
         nwrote = ::write(fd(), message, len);
         if(nwrote >= 0) {

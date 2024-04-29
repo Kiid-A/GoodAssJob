@@ -1,5 +1,6 @@
 #include "ThreadPool.h"
-#include<assert.h>
+#include <assert.h>
+
 
 ThreadPool::ThreadPool()
     :isRunning_(false)
@@ -15,14 +16,16 @@ ThreadPool::~ThreadPool()
 void ThreadPool::start(int numOfThreads)
 {   
     isRunning_ = true;
+    // threads init
     threads_.reserve(numOfThreads);
 
     // add threads
     for(int i = 0; i < numOfThreads; ++i) {
-        threads_.emplace_back(std::make_unique<std::thread>([this]() {
-            printf("thread started\n");
+        threads_.emplace_back(std::make_unique<Thread>([this]() {
             runInThread();
         }));
+        // remember to start thread
+        threads_[i]->start();
     }
 }
 
@@ -33,7 +36,6 @@ void ThreadPool::stop()
         std::unique_lock<std::mutex> lock(mutex_);
         isRunning_ = false;
         cond_.notify_all();
-        printf("stop running is false\n");
     } for(auto& th : threads_) {
         th->join();
     }
@@ -42,10 +44,11 @@ void ThreadPool::stop()
 // task adder/producer
 void ThreadPool::add(Task task)
 {   
-    // execute task when there is no thread
+    // execute task immediately when there is no thread
     if(threads_.empty()) {
         task();
     } else {
+        // queue and wait for thread 
         {
             std::unique_lock<std::mutex> lock(mutex_);
             if(!isRunning_) {
@@ -58,23 +61,21 @@ void ThreadPool::add(Task task)
 
 void ThreadPool::runInThread()
 {
-    printf("runinthread start\n");
 	while (isRunning_) {
 		Task task;
 		{
 			std::unique_lock<std::mutex> lock(mutex_);
-
-            // wait(lock, cond) = while(!cond) {wait(lock)};
-            // wait_until
+            // wait until thread is running or task is empty
 			cond_.wait(lock, [this]() { return !isRunning_ || !tasks_.empty(); });
 
+            // execute task when not empty, or jump ???
 			if (!tasks_.empty()) {
 				task = std::move(tasks_.front());
 				tasks_.pop();
 			}
-		} if(task) {
+		} 
+        if (task) {
 			task();
 		}
 	}
-	printf("thread exit\n");
 }

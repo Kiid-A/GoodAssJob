@@ -10,7 +10,7 @@ int createEventfd()
 {
     int evtfd = ::eventfd(0, EFD_NONBLOCK | EFD_CLOEXEC);
     if(evtfd < 0) {
-        printf("createEventfd error\n");
+        LOG_ERROR << "createEventfd error: " << errno;
     }
     return evtfd;
 }
@@ -27,13 +27,13 @@ public:
 IgnoreSigPide initObj;
 
 EventLoop::EventLoop()
-    :ep_(std::make_unique<Epoll>())
-    ,quit_(false)
-    ,threadId_(std::this_thread::get_id())
-    ,callingPendingFunctors_(false)
-    ,wakeupfd_(createEventfd())
-    ,wakeupChannel_(std::make_unique<Channel>(this, wakeupfd_))
-    ,timerQueue_(std::make_unique<TimerQueue>(this))
+    :ep_(std::make_unique<Epoll>()),
+    quit_(false),
+    threadId_(CurrentThread::tid()),
+    callingPendingFunctors_(false),
+    wakeupfd_(createEventfd()),
+    wakeupChannel_(std::make_unique<Channel>(this, wakeupfd_)),
+    timerQueue_(std::make_unique<TimerQueue>(this))
 {
     // set wakeup callback
     wakeupChannel_->setReadCallBack([this]() { handleRead(); });
@@ -53,7 +53,7 @@ void EventLoop::loop()
     quit_ = false;
     while(!quit_) {
         epTable_.clear();
-        ep_->epollWait(epTable_);
+        ep_->epollWait(epTable_, 10000);
         for(auto& ch : epTable_) {
             ch->handleEvent();
         }
@@ -78,6 +78,13 @@ void EventLoop::quit()
     quit_ = true;
 }
 
+void EventLoop::assertInLoopThread()
+{
+    if (!isInLoop()) {
+        LOG_ERROR << "thread not in loop";
+    }
+}
+
 void EventLoop::runInLoop(Functor cb)
 {   
     if(isInLoop()) {
@@ -88,22 +95,28 @@ void EventLoop::runInLoop(Functor cb)
 }
 
 void EventLoop::queueInLoop(Functor cb)
-{
+{   
+    // wait a thread to execute func
     {
         std::unique_lock<std::mutex> lock(mutex_);
         pendingFunctors_.emplace_back(std::move(cb));
-    } if(!isInLoop() || callingPendingFunctors_) {
+    } 
+    
+    // in this loop or has no func to execute
+    if(!isInLoop() || callingPendingFunctors_) {
         wakeup();
     }
 }
 
-// send to wakeupfd,which will trigger a wakeupChannel readcallback,thus waking up loop thread
+// send something to wakeupfd, 
+// which will trigger a wakeupChannel readcallback,
+// thus waking up loop thread
 void EventLoop::wakeup()
 {   
     uint64_t data = 1;
     auto n = ::write(wakeupfd_, &data, sizeof(data));
     if(n != sizeof(data)) {
-        printf("EventLoop::wakeup write %lu instead of 8\n", n);
+        LOG_INFO << "EventLoop::wakeup write " << n << " instead of 8";
     }
 }
 
@@ -112,7 +125,7 @@ void EventLoop::handleRead()
     uint64_t data = 1;
     auto n = ::read(wakeupfd_, &data, sizeof(data));
     if(n != sizeof(data)) {
-        printf("EventLoop::handleRead read %lu bytes\n", n);
+        LOG_INFO << "EventLoop::handleRead read " << n << " bytes";
     }
 }
 
@@ -121,7 +134,7 @@ void EventLoop::doPendingFunctors()
     std::vector<Functor> functors;
     callingPendingFunctors_ = true;
     
-    // use cache to free lock 
+    // use cache to free lock, enable mainloop to add func
     {
         std::unique_lock<std::mutex> lock(mutex_);
         functors.swap(pendingFunctors_);

@@ -1,14 +1,17 @@
 #pragma once
+
 #include "CallBacks.h"
 #include "Timestamp.h"
-#include<vector>
-#include<memory>
-#include<atomic>
-#include<sys/eventfd.h>
-#include<atomic>
-#include<mutex>
-#include<thread>
-#include<functional>
+#include "CurrentThread.h"
+
+#include <vector>
+#include <memory>
+#include <atomic>
+#include <sys/eventfd.h>
+#include <atomic>
+#include <mutex>
+#include <thread>
+#include <functional>
 
 class TimerQueue;
 class Epoll;
@@ -27,11 +30,12 @@ public:
     using Functor = std::function<void()>;
 
 private:
+
+    // the thread that is using loop
+    pid_t threadId_;
     // quit loop
     std::atomic_bool quit_;
-    // the thread that is using loop
-    std::thread::id threadId_;
-    // if cb function is being executed
+    // if loop has cb function to execute
     std::atomic_bool callingPendingFunctors_;
 
     std::unique_ptr<Epoll> ep_;
@@ -41,7 +45,7 @@ private:
 
     std::unique_ptr<Channel> wakeupChannel_;
     std::unique_ptr<TimerQueue> timerQueue_;
-    // store functors to be executed
+    // store functors to execute
     std::vector<Functor> pendingFunctors_;
     // protect functor vec
     std::mutex mutex_;
@@ -60,7 +64,7 @@ public:
     void removeChannel(Channel* ch);
 
     // if present thread is in loop
-    bool isInLoop() const { return threadId_ == std::this_thread::get_id(); }
+    bool isInLoop() const { return threadId_ == CurrentThread::tid(); }
     // in IO thread -> callback
     // else -> queue in loop and waiting for IO thread to execute it
     void runInLoop(Functor cb);
@@ -72,15 +76,9 @@ public:
     // wake thread where loop at
     void wakeup();
 
-    std::thread::id getThreadId() const { return threadId_; };
+    pid_t getThreadId() const { return threadId_; };
 
-    void assertInLoopThread()
-    {
-        if(!isInLoop()) {
-            printf("not in this loopthread\n");
-            /**/
-        }
-    }
+    void assertInLoopThread();
 
     void quit();
 

@@ -1,10 +1,12 @@
 #pragma once
 
 #include "Epoll.h"
-#include<functional>
-#include<fcntl.h>
-#include<unistd.h>
-#include<memory>
+#include "../log/Logger.h"
+#include <functional>
+#include <fcntl.h>
+#include <unistd.h>
+#include <memory>
+#include <sstream>
 
 /*  Class Channel
     works as client/server end
@@ -24,9 +26,8 @@ class EventLoop;
 class Channel
 {
 public:
-    // 函数包装器
+    // encapsulate call back function
     using EventCallBack = std::function<void()>;
-    using ReadEventCallBack = std::function<void()>;
 
 private:
     EventLoop* loop_;
@@ -51,13 +52,18 @@ private:
     // in multithread env, use lock to guard
     void handleEventWithGuard();
 
+    static std::string event2String(int fd, int event);
+
 public:
     Channel(EventLoop* loop, int fd);
 
     void setEvents(int events);
     int event() const;
+    std::string event2String() const;
+
     void setRevents(int revents);
     int revent() const;
+    std::string revent2String() const;  
 
     bool isInEpoll();
     void setInEpoll(bool in);
@@ -82,7 +88,7 @@ public:
     void remove();
     void handleEvent();
 
-    // build connection
+    // build connection, or tie to an event?
     void tie(const std::shared_ptr<void>&);
 };
 
