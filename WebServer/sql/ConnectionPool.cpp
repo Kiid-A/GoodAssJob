@@ -14,7 +14,7 @@ ConnectionPool * ConnectionPool::getInstance()
 }
 
 void ConnectionPool::init(string url, string user, string passwd, string dbName, 
-                          int port, int maxConn, int closeLog)
+                          int port, int maxConn)
 {
     /* init */
     url_ = url;
@@ -22,15 +22,24 @@ void ConnectionPool::init(string url, string user, string passwd, string dbName,
     passwd_ = passwd;
     dbName_ = dbName;
     port_ = port;
-    closeLog_ = closeLog;
 
     for (int i = 0; i < maxConn; ++i) {
-        MYSQL * conn = nullptr;
-        conn = mysql_init(conn);
-        conn = mysql_real_connect(conn, url.c_str(), user.c_str(), passwd.c_str(), 
+        MYSQL *conn = mysql_init(nullptr);
+
+        if (conn == nullptr) {
+            cout << "mysql error 1 " << mysql_error(conn);
+            exit(1);
+        }
+        conn = mysql_real_connect(conn, url.c_str(), user.c_str(), 
+                                  passwd.c_str(), 
                                   dbName.c_str(), port, nullptr, 0);
 
-        connPool_.emplace_back(conn);
+        if (conn == nullptr) {
+            cout << "mysql error 2 " << mysql_error(conn);
+            exit(1);
+        }
+
+        connPool_.push_back(conn);
         freeConn_++;
     }
 
@@ -43,11 +52,12 @@ MYSQL *ConnectionPool::getConnection()
     MYSQL *conn = nullptr;
 
     {
-        unique_lock<mutex> lock(mutex_);
-        conn = move(connPool_.front());
+        mutex_.lock();
+        conn = connPool_.front();
         connPool_.pop_front();
         ++curConn_;
         --freeConn_;
+        mutex_.unlock();
     }
 
     return conn;

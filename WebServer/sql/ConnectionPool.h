@@ -1,5 +1,6 @@
 #pragma once
 
+#include "../log/Logger.h"
 #include <stdio.h>
 #include <list>
 #include <mysql/mysql.h>
@@ -45,7 +46,7 @@ public:
     static ConnectionPool *getInstance(); /* get instance */
 
     void init(string url, string user, string passwd, string dbName, 
-              int port, int maxConn, int closeLog);
+              int port, int maxConn);
 };
 
 /* resource acquisition is initialization */
