@@ -8,31 +8,33 @@ import (
 
 type User struct {
 	gorm.Model
-	// Id       string
-	// Name     string
-	Username string `gorm:"column:username;primary_key" json:"username"`
+	Id       string `gorm:"column:id;"`
+	Name     string `gorm:"column:name;"`
+	Username string `gorm:"column:username;primary_key;" json:"username"`
 	Passwd   string `gorm:"column:passwd;" json:"passwd"`
+
 	// Gender   string
 	// Token    string
 }
 
 type Map struct {
-	Id   string
-	Name string
-	Type []string
+	gorm.Model
+	Id   string   `gorm:"column:id;primary_key;"`
+	Name string   `gorm:"column:name;"`
+	Type []string `gorm:"column:type;"`
 }
 
 type Article struct {
 	gorm.Model
-	ID      int      `json:"id"`
-	Title   string   `json:"title"`
-	Type    []string `json:"type"`
-	Content string   `json:"content"`
+	Id      int64  `gorm:"column:id;primary_key;" json:"id"`
+	Title   string `gorm:"column:title;" json:"title"`
+	Type    string `gorm:"column:type;" json:"type"`
+	Content string `gorm:"column:content;" json:"content"`
 }
 
 type Comment struct {
-	ID        int    `json:"id"`
-	ArticleID int    `json:"article_id"`
-	Content   string `json:"content"`
-	UserID    int    `json:"user_id"`
+	Id        int    `gorm:"column:id;primary_key;" json:"id"`
+	ArticleID int    `gorm:"column:article_id;" json:"article_id"`
+	Content   string `gorm:"column:type;" json:"content"`
+	UserID    int    `gorm:"column:user_id;" json:"user_id"`
 }

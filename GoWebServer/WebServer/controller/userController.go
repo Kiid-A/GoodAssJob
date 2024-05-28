@@ -22,18 +22,26 @@ func GetUserController() *UserController {
 }
 
 func (uc *UserController) LoadUser(e *gin.Engine) {
-	e.POST("/user/login", uc.login)
-	e.POST("/user/register", uc.register)
-	e.GET("/user/", userIndex)
+	e.GET("/login", func(c *gin.Context) {
+		c.HTML(200, "login.html", gin.H{})
+	})
+	e.GET("/register", func(c *gin.Context) {
+		c.HTML(200, "register.html", gin.H{})
+	})
+
+	e.GET("/user", uc.userIndex)
+	e.POST("/login", uc.login)
+	e.POST("/register", uc.register)
+
 	// e.GET("/user/", register)
 }
 
-func userIndex(c *gin.Context) {
+func (uc *UserController) userIndex(c *gin.Context) {
 	c.HTML(200, "login.html", gin.H{})
 }
 
 func (uc *UserController) login(c *gin.Context) {
-	// c.HTML(200, "login.html", gin.H{})
+	// c.HTML(201, "login.html", gin.H{})
 
 	username := c.Query("username")
 	passwd := c.Query("passwd")
@@ -63,7 +71,7 @@ func (uc *UserController) login(c *gin.Context) {
 }
 
 func (uc *UserController) register(c *gin.Context) {
-	// c.HTML(200, "register.html", gin.H{})
+	// c.HTML(201, "register.html", gin.H{})
 
 	username := c.Query("username")
 	passwd := c.Query("passwd")
