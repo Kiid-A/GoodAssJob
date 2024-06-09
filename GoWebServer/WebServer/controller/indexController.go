@@ -25,6 +25,7 @@ func (c *Controller) InitCtrl(db db.MyDB) {
 }
 
 func LoadIndex(e *gin.Engine) {
+	e.GET("/index.html", welcome)
 	e.GET("/", welcome)
 }
 

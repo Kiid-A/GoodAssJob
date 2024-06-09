@@ -12,9 +12,9 @@ import (
 var le = binary.LittleEndian
 
 const (
-	gzipID1     = 0x1f
-	gzipID2     = 0x8b
-	gzipDeflate = 8
+	zipID1     = 0x1f
+	zipID2     = 0x8b
+	zipDeflate = 8
 	flagText    = 1 << 0
 	flagHdrCrc  = 1 << 1
 	flagExtra   = 1 << 2
@@ -65,7 +65,7 @@ func (z *Writer) Write(p []byte) (int, error) {
 	var n int
 	if !z.wroteHeader {
 		z.wroteHeader = true
-		z.buf = [10]byte{0: gzipID1, 1: gzipID2, 2: gzipDeflate}
+		z.buf = [10]byte{0: zipID1, 1: zipID2, 2: zipDeflate}
 		if z.Extra != nil {
 			z.buf[3] |= 0x04
 		}

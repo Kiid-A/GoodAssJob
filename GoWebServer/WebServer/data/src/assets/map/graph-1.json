@@ -1,0 +1,259 @@
+{
+    "name": "graph",
+    "adjList": {
+        "0": [
+            {
+                "destination": 1,
+                "weight": 126
+            }
+        ],
+        "1": [
+            {
+                "destination": 0,
+                "weight": 126
+            },
+            {
+                "destination": 2,
+                "weight": 215
+            },
+            {
+                "destination": 3,
+                "weight": 132
+            },
+            {
+                "destination": 6,
+                "weight": 172
+            }
+        ],
+        "2": [
+            {
+                "destination": 1,
+                "weight": 215
+            },
+            {
+                "destination": 4,
+                "weight": 133
+            },
+            {
+                "destination": 5,
+                "weight": 321
+            },
+            {
+                "destination": 8,
+                "weight": 211
+            }
+        ],
+        "3": [
+            {
+                "destination": 1,
+                "weight": 132
+            },
+            {
+                "destination": 4,
+                "weight": 216
+            }
+        ],
+        "4": [
+            {
+                "destination": 3,
+                "weight": 216
+            },
+            {
+                "destination": 2,
+                "weight": 133
+            }
+        ],
+        "5": [
+            {
+                "destination": 2,
+                "weight": 321
+            },
+            {
+                "destination": 7,
+                "weight": 215
+            },
+            {
+                "destination": 9,
+                "weight": 231
+            }
+        ],
+        "6": [
+            {
+                "destination": 1,
+                "weight": 172
+            },
+            {
+                "destination": 6,
+                "weight": 0
+            },
+            {
+                "destination": 6,
+                "weight": 0
+            },
+            {
+                "destination": 7,
+                "weight": 152
+            }
+        ],
+        "7": [
+            {
+                "destination": 6,
+                "weight": 152
+            },
+            {
+                "destination": 5,
+                "weight": 215
+            }
+        ],
+        "8": [
+            {
+                "destination": 2,
+                "weight": 211
+            },
+            {
+                "destination": 9,
+                "weight": 238
+            },
+            {
+                "destination": 10,
+                "weight": 132
+            },
+            {
+                "destination": 11,
+                "weight": 140
+            }
+        ],
+        "9": [
+            {
+                "destination": 8,
+                "weight": 238
+            },
+            {
+                "destination": 5,
+                "weight": 231
+            }
+        ],
+        "10": [
+            {
+                "destination": 8,
+                "weight": 132
+            }
+        ],
+        "11": [
+            {
+                "destination": 8,
+                "weight": 140
+            }
+        ]
+    },
+    "points": [
+        {
+            "name": "1",
+            "index": 0,
+            "x": 255,
+            "y": 258,
+            "type": "Intersection",
+            "rating": 0.0,
+            "tag": "No tag"
+        },
+        {
+            "name": "2",
+            "index": 1,
+            "x": 381,
+            "y": 249,
+            "type": "Intersection",
+            "rating": 0.0,
+            "tag": "No tag"
+        },
+        {
+            "name": "3",
+            "index": 2,
+            "x": 596,
+            "y": 250,
+            "type": "Intersection",
+            "rating": 0.0,
+            "tag": "No tag"
+        },
+        {
+            "name": "5",
+            "index": 3,
+            "x": 375,
+            "y": 117,
+            "type": "Intersection",
+            "rating": 0.0,
+            "tag": "No tag"
+        },
+        {
+            "name": "jajaja",
+            "index": 4,
+            "x": 591,
+            "y": 117,
+            "type": "Intersection",
+            "rating": 0.0,
+            "tag": "No tag"
+        },
+        {
+            "name": "jajaj",
+            "index": 5,
+            "x": 593,
+            "y": 571,
+            "type": "Intersection",
+            "rating": 0.0,
+            "tag": "No tag"
+        },
+        {
+            "name": "11",
+            "index": 6,
+            "x": 376,
+            "y": 421,
+            "type": "Intersection",
+            "rating": 0.0,
+            "tag": "No tag"
+        },
+        {
+            "name": "wula",
+            "index": 7,
+            "x": 378,
+            "y": 573,
+            "type": "Intersection",
+            "rating": 0.0,
+            "tag": "No tag"
+        },
+        {
+            "name": "44",
+            "index": 8,
+            "x": 807,
+            "y": 251,
+            "type": "Toilet",
+            "rating": 0.0,
+            "tag": "No tag"
+        },
+        {
+            "name": "wualaaa",
+            "index": 9,
+            "x": 809,
+            "y": 489,
+            "type": "Scenic",
+            "rating": 5.0,
+            "tag": "No tag"
+        },
+        {
+            "name": "ooo",
+            "index": 10,
+            "x": 939,
+            "y": 250,
+            "type": "Scenic",
+            "rating": 3.3,
+            "tag": "ojbk"
+        },
+        {
+            "name": "yaha5",
+            "index": 11,
+            "x": 811,
+            "y": 111,
+            "type": "Toilet",
+            "rating": 0.0,
+            "tag": "No tag"
+        }
+    ]
+}

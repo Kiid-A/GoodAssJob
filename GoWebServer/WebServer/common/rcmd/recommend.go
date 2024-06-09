@@ -68,7 +68,7 @@ func getNeighbors(rt models.Rating, userRt []models.Rating, userNum int) []RtDis
 		} else if r.Dist < distMatrix[n-1].Dist && len <= n {
 			distMatrix[n-1] = r
 			idx := binarySearch(distMatrix, r, n-1)
-			for i := n - 1; i >= idx; i-- {
+			for i := n - 2; i >= idx; i-- {
 				distMatrix[i+1] = distMatrix[i]
 			}
 			distMatrix[idx] = r

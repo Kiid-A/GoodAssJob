@@ -1,0 +1,271 @@
+Date : 2024-05-31 18:53:53
+Directory : /root/CppServer/GoodAssJob/GoWebServer/WebServer
+Total : 190 files,  56735 codes, 11083 comments, 6224 blanks, all 74042 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| JavaScript |         20 |     37,252 |      8,825 |      2,954 |     49,031 |
+| CSS        |         17 |     10,646 |        205 |      1,630 |     12,481 |
+| SCSS       |        101 |      5,707 |      1,937 |      1,351 |      8,995 |
+| HTML       |         10 |      1,832 |         34 |        107 |      1,973 |
+| Go         |         10 |        877 |         82 |        154 |      1,113 |
+| XML        |         32 |        421 |          0 |         28 |        449 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++-------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                                                | files      | code       | comment    | blank      | total      |
++-------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                                                   |        190 |     56,735 |     11,083 |      6,224 |     74,042 |
+| . (Files)                                                                                                                           |          1 |         19 |          1 |          6 |         26 |
+| common                                                                                                                              |          3 |        435 |         23 |         48 |        506 |
+| common/compress                                                                                                                     |          2 |        329 |         20 |         34 |        383 |
+| common/rcmd                                                                                                                         |          1 |        106 |          3 |         14 |        123 |
+| controller                                                                                                                          |          4 |        338 |         13 |         77 |        428 |
+| data                                                                                                                                |        170 |     54,026 |     10,967 |      5,963 |     70,956 |
+| data/src                                                                                                                            |        170 |     54,026 |     10,967 |      5,963 |     70,956 |
+| data/src/assets                                                                                                                     |        170 |     54,026 |     10,967 |      5,963 |     70,956 |
+| data/src/assets (Files)                                                                                                             |          1 |         41 |          0 |          2 |         43 |
+| data/src/assets/css                                                                                                                 |          5 |      8,637 |         54 |      1,225 |      9,916 |
+| data/src/assets/css (Files)                                                                                                         |          2 |      8,422 |         29 |      1,187 |      9,638 |
+| data/src/assets/css/vendor                                                                                                          |          3 |        215 |         25 |         38 |        278 |
+| data/src/assets/img                                                                                                                 |          4 |          4 |          0 |          0 |          4 |
+| data/src/assets/img/sample                                                                                                          |          4 |          4 |          0 |          0 |          4 |
+| data/src/assets/js                                                                                                                  |         55 |     39,672 |      8,945 |      3,387 |     52,004 |
+| data/src/assets/js (Files)                                                                                                          |          5 |     28,504 |      7,735 |      2,033 |     38,272 |
+| data/src/assets/js/lang                                                                                                             |          2 |      1,381 |         32 |         23 |      1,436 |
+| data/src/assets/js/lang/en                                                                                                          |          1 |        667 |         12 |          8 |        687 |
+| data/src/assets/js/lang/zh-cn                                                                                                       |          1 |        714 |         20 |         15 |        749 |
+| data/src/assets/js/themes                                                                                                           |         32 |      2,254 |        117 |        405 |      2,776 |
+| data/src/assets/js/themes (Files)                                                                                                   |          1 |         51 |          1 |         12 |         64 |
+| data/src/assets/js/themes/default                                                                                                   |         31 |      2,203 |        116 |        393 |      2,712 |
+| data/src/assets/js/themes/default (Files)                                                                                           |          2 |         95 |          8 |         17 |        120 |
+| data/src/assets/js/themes/default/css                                                                                               |          1 |      1,691 |        108 |        348 |      2,147 |
+| data/src/assets/js/themes/default/exts                                                                                              |         28 |        417 |          0 |         28 |        445 |
+| data/src/assets/js/third-party                                                                                                      |          9 |      7,516 |      1,038 |        901 |      9,455 |
+| data/src/assets/js/third-party (Files)                                                                                              |          1 |          3 |          3 |          1 |          7 |
+| data/src/assets/js/third-party/SyntaxHighlighter                                                                                    |          2 |      2,383 |        713 |        561 |      3,657 |
+| data/src/assets/js/third-party/clipboard                                                                                            |          1 |        515 |        125 |        113 |        753 |
+| data/src/assets/js/third-party/codemirror                                                                                           |          2 |      3,299 |        189 |        201 |      3,689 |
+| data/src/assets/js/third-party/webuploader                                                                                          |          2 |         78 |          0 |         15 |         93 |
+| data/src/assets/js/third-party/zeroclipboard                                                                                        |          1 |      1,238 |          8 |         10 |      1,256 |
+| data/src/assets/js/vendor                                                                                                           |          7 |         17 |         23 |         25 |         65 |
+| data/src/assets/scss                                                                                                                |        105 |      5,672 |      1,968 |      1,349 |      8,989 |
+| data/src/assets/scss (Files)                                                                                                        |          1 |        741 |         39 |         58 |        838 |
+| data/src/assets/scss/1-frameworks                                                                                                   |         90 |      4,919 |      1,905 |      1,274 |      8,098 |
+| data/src/assets/scss/1-frameworks (Files)                                                                                           |          1 |          4 |          0 |          1 |          5 |
+| data/src/assets/scss/1-frameworks/bootstrap                                                                                         |         89 |      4,915 |      1,905 |      1,273 |      8,093 |
+| data/src/assets/scss/1-frameworks/bootstrap (Files)                                                                                 |          4 |        197 |        849 |         30 |      1,076 |
+| data/src/assets/scss/1-frameworks/bootstrap/css                                                                                     |          4 |          3 |         17 |          0 |         20 |
+| data/src/assets/scss/1-frameworks/bootstrap/source                                                                                  |         81 |      4,715 |      1,039 |      1,243 |      6,997 |
+| data/src/assets/scss/1-frameworks/bootstrap/source (Files)                                                                          |         35 |      3,689 |        826 |      1,008 |      5,523 |
+| data/src/assets/scss/1-frameworks/bootstrap/source/mixins                                                                           |         31 |        723 |        165 |        146 |      1,034 |
+| data/src/assets/scss/1-frameworks/bootstrap/source/utilities                                                                        |         15 |        303 |         48 |         89 |        440 |
+| data/src/assets/scss/2-plugins                                                                                                      |          1 |          0 |          0 |          1 |          1 |
+| data/src/assets/scss/3-base                                                                                                         |          4 |          3 |          9 |          8 |         20 |
+| data/src/assets/scss/4-modules                                                                                                      |          1 |          0 |          1 |          1 |          2 |
+| data/src/assets/scss/5-layout                                                                                                       |          7 |          6 |          0 |          7 |         13 |
+| data/src/assets/scss/css                                                                                                            |          1 |          3 |         14 |          0 |         17 |
+| db                                                                                                                                  |          1 |         36 |         42 |         14 |         92 |
+| model                                                                                                                               |          1 |         49 |          3 |          9 |         61 |
+| views                                                                                                                               |         10 |      1,832 |         34 |        107 |      1,973 |
++-------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                                                                                            | language   | code       | comment    | blank      | total      |
++-------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/common/compress/compress.go                                                        | Go         |        165 |          5 |         12 |        182 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/common/compress/decompress.go                                                      | Go         |        164 |         15 |         22 |        201 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/common/rcmd/recommend.go                                                           | Go         |        106 |          3 |         14 |        123 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/controller/articleController.go                                                    | Go         |        226 |          9 |         45 |        280 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/controller/indexController.go                                                      | Go         |         27 |          0 |          7 |         34 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/controller/mapController.go                                                        | Go         |         10 |          1 |          4 |         15 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/controller/userController.go                                                       | Go         |         75 |          3 |         21 |         99 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/css/main.css                                                       | CSS        |      8,421 |         29 |      1,187 |      9,637 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/css/s.min.css                                                      | CSS        |          1 |          0 |          0 |          1 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/css/vendor/aos.css                                                 | CSS        |          1 |          0 |          0 |          1 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/css/vendor/bootstrap-toc.css                                       | CSS        |          1 |          3 |          0 |          4 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/css/vendor/prism.css                                               | CSS        |        213 |         22 |         38 |        273 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/img/sample/undraw_QA_engineers_dg5p.svg                            | XML        |          1 |          0 |          0 |          1 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/img/sample/undraw_off_road_9oae.svg                                | XML        |          1 |          0 |          0 |          1 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/img/sample/undraw_vehicle_sale_v7fm.svg                            | XML        |          1 |          0 |          0 |          1 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/img/sample/undraw_working_late_pukg.svg                            | XML        |          1 |          0 |          0 |          1 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/js/editor_api.js                                                   | JavaScript |        131 |          3 |          3 |        137 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/js/functions.js                                                    | JavaScript |          5 |          0 |          3 |          8 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/js/lang/en/en.js                                                   | JavaScript |        667 |         12 |          8 |        687 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/js/lang/zh-cn/zh-cn.js                                             | JavaScript |        714 |         20 |         15 |        749 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/js/themes/default/css/ueditor.css                                  | CSS        |      1,691 |        108 |        348 |      2,147 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/js/themes/default/dialog.css                                       | CSS        |         16 |          0 |          2 |         18 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/js/themes/default/dialogbase.css                                   | CSS        |         79 |          8 |         15 |        102 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/js/themes/default/exts/ai.svg                                      | XML        |         12 |          0 |          1 |         13 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/js/themes/default/exts/apk.svg                                     | XML        |         12 |          0 |          1 |         13 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/js/themes/default/exts/chm.svg                                     | XML        |         12 |          0 |          1 |         13 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/js/themes/default/exts/css.svg                                     | XML        |         12 |          0 |          1 |         13 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/js/themes/default/exts/doc.svg                                     | XML        |         22 |          0 |          1 |         23 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/js/themes/default/exts/docx.svg                                    | XML        |         22 |          0 |          1 |         23 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/js/themes/default/exts/dwg.svg                                     | XML        |         16 |          0 |          1 |         17 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/js/themes/default/exts/folder.svg                                  | XML        |          3 |          0 |          1 |          4 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/js/themes/default/exts/gif.svg                                     | XML        |         14 |          0 |          1 |         15 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/js/themes/default/exts/html.svg                                    | XML        |         12 |          0 |          1 |         13 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/js/themes/default/exts/jpeg.svg                                    | XML        |         14 |          0 |          1 |         15 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/js/themes/default/exts/jpg.svg                                     | XML        |         14 |          0 |          1 |         15 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/js/themes/default/exts/log.svg                                     | XML        |         12 |          0 |          1 |         13 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/js/themes/default/exts/mp3.svg                                     | XML        |         14 |          0 |          1 |         15 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/js/themes/default/exts/mp4.svg                                     | XML        |         12 |          0 |          1 |         13 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/js/themes/default/exts/pdf.svg                                     | XML        |         14 |          0 |          1 |         15 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/js/themes/default/exts/png.svg                                     | XML        |         14 |          0 |          1 |         15 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/js/themes/default/exts/ppt.svg                                     | XML        |         24 |          0 |          1 |         25 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/js/themes/default/exts/pptx.svg                                    | XML        |         24 |          0 |          1 |         25 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/js/themes/default/exts/psd.svg                                     | XML        |         12 |          0 |          1 |         13 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/js/themes/default/exts/rar.svg                                     | XML        |         12 |          0 |          1 |         13 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/js/themes/default/exts/svg.svg                                     | XML        |         12 |          0 |          1 |         13 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/js/themes/default/exts/torrent.svg                                 | XML        |         14 |          0 |          1 |         15 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/js/themes/default/exts/txt.svg                                     | XML        |         14 |          0 |          1 |         15 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/js/themes/default/exts/unknown.svg                                 | XML        |         12 |          0 |          1 |         13 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/js/themes/default/exts/xls.svg                                     | XML        |         25 |          0 |          1 |         26 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/js/themes/default/exts/xlsx.svg                                    | XML        |         25 |          0 |          1 |         26 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/js/themes/default/exts/zip.svg                                     | XML        |         12 |          0 |          1 |         13 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/js/themes/iframe.css                                               | CSS        |         51 |          1 |         12 |         64 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/js/third-party/SyntaxHighlighter/shCore.js                         | JavaScript |      2,382 |        713 |        561 |      3,656 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/js/third-party/SyntaxHighlighter/shCoreDefault.css                 | CSS        |          1 |          0 |          0 |          1 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/js/third-party/clipboard/clipboard.js                              | JavaScript |        515 |        125 |        113 |        753 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/js/third-party/codemirror/codemirror.css                           | CSS        |         91 |          3 |         13 |        107 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/js/third-party/codemirror/codemirror.js                            | JavaScript |      3,208 |        186 |        188 |      3,582 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/js/third-party/jquery-1.10.2.js                                    | JavaScript |          3 |          3 |          1 |          7 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/js/third-party/webuploader/webuploader.css                         | CSS        |         74 |          0 |         15 |         89 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/js/third-party/webuploader/webuploader.js                          | JavaScript |          4 |          0 |          0 |          4 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/js/third-party/zeroclipboard/ZeroClipboard.js                      | JavaScript |      1,238 |          8 |         10 |      1,256 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/js/ueditor.all.js                                                  | JavaScript |     27,265 |      7,382 |      1,918 |     36,565 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/js/ueditor.config.js                                               | JavaScript |        241 |        334 |         79 |        654 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/js/ueditor.parse.js                                                | JavaScript |        862 |         16 |         30 |        908 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/js/vendor/aos.js                                                   | JavaScript |          1 |          0 |          0 |          1 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/js/vendor/bootstrap-toc.js                                         | JavaScript |          1 |          4 |          0 |          5 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/js/vendor/bootstrap.min.js                                         | JavaScript |          1 |          6 |          0 |          7 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/js/vendor/jquery.min.js                                            | JavaScript |          1 |          1 |          1 |          3 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/js/vendor/popper.min.js                                            | JavaScript |          1 |          4 |          1 |          6 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/js/vendor/prism.js                                                 | JavaScript |         11 |          8 |         23 |         42 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/js/vendor/share.js                                                 | JavaScript |          1 |          0 |          0 |          1 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/s.scss                                                             | SCSS       |         41 |          0 |          2 |         43 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/_index.scss                                      | SCSS       |          4 |          0 |          1 |          5 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/bootstrap-grid.scss                    | SCSS       |         20 |          6 |          7 |         33 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/bootstrap-reboot.scss                  | SCSS       |          4 |          7 |          2 |         13 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/bootstrap-user-variables.scss          | SCSS       |        138 |        830 |         19 |        987 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/bootstrap.scss                         | SCSS       |         35 |          6 |          2 |         43 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/css/bootstrap-grid.min.css             | CSS        |          1 |          5 |          0 |          6 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/css/bootstrap-reboot.min.css           | CSS        |          1 |          6 |          0 |          7 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/css/bootstrap-user-variables.min.css   | CSS        |          0 |          1 |          0 |          1 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/css/bootstrap.min.css                  | CSS        |          1 |          5 |          0 |          6 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/_alert.scss                     | SCSS       |         28 |         13 |         11 |         52 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/_badge.scss                     | SCSS       |         28 |         12 |          8 |         48 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/_breadcrumb.scss                | SCSS       |         29 |          8 |          5 |         42 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/_button-group.scss              | SCSS       |        109 |         31 |         33 |        173 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/_buttons.scss                   | SCSS       |         89 |         24 |         29 |        142 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/_card.scss                      | SCSS       |        216 |         30 |         56 |        302 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/_carousel.scss                  | SCSS       |        175 |         29 |         33 |        237 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/_close.scss                     | SCSS       |         23 |          7 |          6 |         36 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/_code.scss                      | SCSS       |         36 |          6 |          7 |         49 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/_custom-forms.scss              | SCSS       |        333 |         39 |         62 |        434 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/_dropdown.scss                  | SCSS       |        133 |         15 |         19 |        167 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/_forms.scss                     | SCSS       |        206 |         74 |         54 |        334 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/_functions.scss                 | SCSS       |         54 |         19 |         14 |         87 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/_grid.scss                      | SCSS       |         28 |         15 |         10 |         53 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/_images.scss                    | SCSS       |         22 |         13 |          8 |         43 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/_input-group.scss               | SCSS       |        113 |         32 |         29 |        174 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/_jumbotron.scss                 | SCSS       |         14 |          0 |          3 |         17 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/_list-group.scss                | SCSS       |         70 |         22 |         24 |        116 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/_media.scss                     | SCSS       |          7 |          0 |          2 |          9 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/_mixins.scss                    | SCSS       |         30 |          7 |          5 |         42 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/_modal.scss                     | SCSS       |        121 |         33 |         27 |        181 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/_nav.scss                       | SCSS       |         76 |         19 |         24 |        119 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/_navbar.scss                    | SCSS       |        197 |         47 |         56 |        300 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/_pagination.scss                | SCSS       |         62 |          5 |         12 |         79 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/_popover.scss                   | SCSS       |        150 |          5 |         29 |        184 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/_print.scss                     | SCSS       |         84 |         33 |         25 |        142 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/_progress.scss                  | SCSS       |         30 |          0 |          5 |         35 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/_reboot.scss                    | SCSS       |        264 |        136 |         84 |        484 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/_root.scss                      | SCSS       |         13 |          3 |          4 |         20 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/_tables.scss                    | SCSS       |        122 |         28 |         38 |        188 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/_tooltip.scss                   | SCSS       |         93 |          5 |         18 |        116 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/_transitions.scss               | SCSS       |         17 |          1 |          5 |         23 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/_type.scss                      | SCSS       |         82 |         20 |         24 |        126 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/_utilities.scss                 | SCSS       |         15 |          0 |          1 |         16 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/_variables.scss                 | SCSS       |        620 |         95 |        238 |        953 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/mixins/_alert.scss              | SCSS       |         11 |          0 |          3 |         14 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/mixins/_background-variant.scss | SCSS       |         16 |          2 |          4 |         22 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/mixins/_badge.scss              | SCSS       |         11 |          0 |          2 |         13 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/mixins/_border-radius.scss      | SCSS       |         29 |          1 |          6 |         36 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/mixins/_box-shadow.scss         | SCSS       |          5 |          0 |          1 |          6 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/mixins/_breakpoints.scss        | SCSS       |         69 |         44 |         11 |        124 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/mixins/_buttons.scss            | SCSS       |         86 |         10 |         14 |        110 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/mixins/_caret.scss              | SCSS       |         59 |          0 |          8 |         67 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/mixins/_clearfix.scss           | SCSS       |          7 |          0 |          1 |          8 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/mixins/_float.scss              | SCSS       |          9 |          1 |          2 |         12 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/mixins/_forms.scss              | SCSS       |        115 |         14 |         19 |        148 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/mixins/_gradients.scss          | SCSS       |         34 |          7 |          5 |         46 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/mixins/_grid-framework.scss     | SCSS       |         50 |          8 |         10 |         68 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/mixins/_grid.scss               | SCSS       |         35 |         10 |          8 |         53 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/mixins/_hover.scss              | SCSS       |         23 |         10 |          5 |         38 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/mixins/_image.scss              | SCSS       |         12 |         17 |          8 |         37 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/mixins/_list-group.scss         | SCSS       |         17 |          1 |          4 |         22 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/mixins/_lists.scss              | SCSS       |          4 |          2 |          2 |          8 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/mixins/_nav-divider.scss        | SCSS       |          6 |          3 |          2 |         11 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/mixins/_navbar-align.scss       | SCSS       |          0 |          9 |          2 |         11 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/mixins/_pagination.scss         | SCSS       |         19 |          1 |          3 |         23 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/mixins/_reset-text.scss         | SCSS       |         16 |          1 |          1 |         18 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/mixins/_resize.scss             | SCSS       |          4 |          1 |          2 |          7 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/mixins/_screen-reader.scss      | SCSS       |         21 |          9 |          4 |         34 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/mixins/_size.scss               | SCSS       |          4 |          1 |          2 |          7 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/mixins/_table-row.scss          | SCSS       |         21 |          5 |          5 |         31 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/mixins/_text-emphasis.scss      | SCSS       |         10 |          2 |          3 |         15 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/mixins/_text-hide.scss          | SCSS       |         10 |          2 |          2 |         14 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/mixins/_text-truncate.scss      | SCSS       |          5 |          2 |          2 |          9 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/mixins/_transition.scss         | SCSS       |         12 |          0 |          2 |         14 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/mixins/_visibility.scss         | SCSS       |          3 |          2 |          3 |          8 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/utilities/_align.scss           | SCSS       |          6 |          1 |          2 |          9 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/utilities/_background.scss      | SCSS       |         14 |          1 |          5 |         20 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/utilities/_borders.scss         | SCSS       |         43 |          7 |         10 |         60 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/utilities/_clearfix.scss        | SCSS       |          3 |          0 |          1 |          4 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/utilities/_display.scss         | SCSS       |         25 |          7 |          7 |         39 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/utilities/_embed.scss           | SCSS       |         44 |          1 |          8 |         53 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/utilities/_flex.scss            | SCSS       |         39 |          4 |          9 |         52 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/utilities/_float.scss           | SCSS       |          8 |          0 |          2 |         10 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/utilities/_position.scss        | SCSS       |         25 |          5 |          8 |         38 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/utilities/_screenreaders.scss   | SCSS       |          6 |          3 |          3 |         12 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/utilities/_shadows.scss         | SCSS       |          4 |          1 |          2 |          7 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/utilities/_sizing.scss          | SCSS       |          7 |          2 |          4 |         13 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/utilities/_spacing.scss         | SCSS       |         43 |          3 |          6 |         52 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/utilities/_text.scss            | SCSS       |         30 |         10 |         19 |         59 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/1-frameworks/bootstrap/source/utilities/_visibility.scss      | SCSS       |          6 |          3 |          3 |         12 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/2-plugins/_index.scss                                         | SCSS       |          0 |          0 |          1 |          1 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/3-base/_base.scss                                             | SCSS       |          0 |          1 |          1 |          2 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/3-base/_index.scss                                            | SCSS       |          3 |          0 |          1 |          4 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/3-base/_mixins.scss                                           | SCSS       |          0 |          1 |          1 |          2 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/3-base/_variables.scss                                        | SCSS       |          0 |          7 |          5 |         12 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/4-modules/_index.scss                                         | SCSS       |          0 |          1 |          1 |          2 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/5-layout/_columns.scss                                        | SCSS       |          0 |          0 |          1 |          1 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/5-layout/_containers.scss                                     | SCSS       |          0 |          0 |          1 |          1 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/5-layout/_extends.scss                                        | SCSS       |          0 |          0 |          1 |          1 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/5-layout/_footer.scss                                         | SCSS       |          0 |          0 |          1 |          1 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/5-layout/_header.scss                                         | SCSS       |          0 |          0 |          1 |          1 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/5-layout/_index.scss                                          | SCSS       |          6 |          0 |          1 |          7 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/5-layout/_layout.scss                                         | SCSS       |          0 |          0 |          1 |          1 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/css/main.min.css                                              | CSS        |          3 |         14 |          0 |         17 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/data/src/assets/scss/main.scss                                                     | SCSS       |        741 |         39 |         58 |        838 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/db/db.go                                                                           | Go         |         36 |         42 |         14 |         92 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/main.go                                                                            | Go         |         19 |          1 |          6 |         26 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/model/model.go                                                                     | Go         |         49 |          3 |          9 |         61 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/views/add_article.html                                                             | HTML       |        151 |          3 |         16 |        170 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/views/article_manage.html                                                          | HTML       |        188 |          4 |         17 |        209 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/views/diary.html                                                                   | HTML       |        200 |          3 |          8 |        211 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/views/diary_show.html                                                              | HTML       |        200 |          3 |          9 |        212 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/views/index.html                                                                   | HTML       |        270 |          3 |         12 |        285 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/views/login.html                                                                   | HTML       |        132 |          3 |          8 |        143 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/views/recommend.html                                                               | HTML       |        227 |          3 |         11 |        241 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/views/recommend_show.html                                                          | HTML       |        222 |          6 |         10 |        238 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/views/register.html                                                                | HTML       |        107 |          3 |          8 |        118 |
+| /root/CppServer/GoodAssJob/GoWebServer/WebServer/views/user_info.html                                                               | HTML       |        135 |          3 |          8 |        146 |
+| Total                                                                                                                               |            |     56,735 |     11,083 |      6,224 |     74,042 |
++-------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+

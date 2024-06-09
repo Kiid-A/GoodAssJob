@@ -9,32 +9,40 @@
   .amap-call {
     display: none;
   }
+
   .amap-lib-driving {
     border: 1px solid #e6e6e6;
     border-radius: 10px;
     overflow: hidden;
   }
+
   .amap-lib-driving b,
   .amap-lib-driving strong,
   dt {
     font-weight: normal;
   }
+
   .amap-lib-driving .planTitle {
     border-top: 0;
     padding: 10px;
   }
+
   .amap-lib-driving .plan dt.start {
     border-top: 0;
   }
+
   .amap-lib-driving .plan dt.end {
     border-bottom: 0;
   }
+
   .amap-lib-driving .plan dt {
     line-height: 30px;
   }
+
   .amap-lib-driving .plan-nobus {
     padding: 10px;
   }
+
   .planTitle_route {
     font-size: 12px;
     padding-bottom: 5px;

@@ -96,7 +96,7 @@ func (z *Reader) readHeader() (hdr Header, err error) {
 		// Thus, it is okay to return io.EOF here.
 		return hdr, err
 	}
-	if z.buf[0] != gzipID1 || z.buf[1] != gzipID2 || z.buf[2] != gzipDeflate {
+	if z.buf[0] != zipID1 || z.buf[1] != zipID2 || z.buf[2] != zipDeflate {
 		return hdr, ErrHeader
 	}
 	flg := z.buf[3]
