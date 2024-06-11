@@ -17,6 +17,7 @@
         integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <!-- Main CSS -->
     <link href="./assets/css/main.css" rel="stylesheet" />
+    <script src="./assets/js/api.js"></script>
 </head>
 
 <body>
@@ -51,7 +52,7 @@
                 </ul>
                 <a class="nav-link" href="./user_info.html">
                     <img class="rounded-circle shadow" src="assets/img/demo/avatar2.jpg" width="20">
-                    <span>BUPT</span>
+                    <span id="Name">BUPT</span>
                 </a>
             </div>
         </div>
@@ -92,26 +93,27 @@
                         <form>
                             <div class="form-group">
                                 <input type="text" class="form-control" placeholder="UserName" required=""
-                                    value="XiongXiong" id="name">
+                                    value="XiongXiong" id="username">
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control" placeholder="NickName" required=""
-                                    value="Bear Xiong" id="gender">
+                                    value="Bear Xiong" id="name">
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control" placeholder="Phone" required=""
-                                    value="1388888888">
+                                    value="1388888888" id="tele">
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control" placeholder="Email" required=""
-                                    value="simon.webok@gmail.com">
+                                    value="cyh@edu.bupt.com" id="mail">
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Age" required="" value="18">
+                                <input type="text" class="form-control" placeholder="Age" required="" value="18"
+                                    id="age">
                             </div>
                             <div class="form-group">
-                                <textarea class="form-control" rows="6"
-                                    placeholder="Self Introduction">I like writing code, such as HTML, CSS, JavaScript</textarea>
+                                <textarea class="form-control" rows="6" placeholder="Self Introduction"
+                                    id="intro">I like writing code, such as HTML, CSS, JavaScript</textarea>
                             </div>
                             <button type="submit" class="btn btn-success btn-round" id="infoSubmit">Submit</button>
                         </form>
@@ -142,6 +144,56 @@
     <script src="./assets/js/vendor/popper.min.js"></script>
     <script src="./assets/js/vendor/bootstrap.min.js"></script>
     <script src="./assets/js/functions.js"></script>
+    <script>
+        function getQueryStringArgs() {
+            var qs = (location.search.length > 0 ? location.search.substring(1) : ""),
+                args = {},
+                items = qs.length ? qs.split("&") : [],
+                item = null,
+                name = null,
+                value = null,
+                i = 0,
+                len = items.length;
+
+            for (i = 0; i < len; i++) {
+                item = items[i].split("=");
+
+                // decodeURIComponent解码
+                name = decodeURIComponent(item[0]);
+                value = decodeURIComponent(item[1]);
+
+                if (name.length) {
+                    args[name] = value;
+                }
+            }
+
+            return args;
+        }
+        let query = getQueryStringArgs()
+        console.log(query)
+        id = query.id
+        window.onload = function () {
+            $.ajax({
+                url: `${baseUrl}/api/user/${id}/info`, // Correctly format the URL
+                type: 'GET',
+                dataType: 'json',
+                contentType: 'application/json; charset=utf-8',
+                success: function (res) {
+                    console.log($('name'))
+                    console.log(res.user.username);
+                    console.log($('#username').value)
+                    console.log($('Name'))
+                    $('#username').attr('value', res.user.username);
+                    $('#name').attr('value', res.user.name);
+                    $('#Name').text(res.user.name)
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error fetching data:', error);
+                }
+            });
+        }
+
+    </script>
 </body>
 
 </html>

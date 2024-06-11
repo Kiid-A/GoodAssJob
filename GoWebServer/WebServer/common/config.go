@@ -5,4 +5,5 @@ const (
 	MiPath  = "data/src/assets/img/spot/"
 	MapPath = "data/src/assets/map/"
 	ArticlePath = "data/src"
+	NaviPath = "data/src/assets"
 )

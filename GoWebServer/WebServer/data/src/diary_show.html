@@ -17,6 +17,12 @@
 		integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 	<!-- Main CSS -->
 	<link href="./assets/css/main.css" rel="stylesheet" />
+	<!-- Custom CSS -->
+	<link href="./assets/css/s.min.css" rel="stylesheet" />
+	<!-- Amap -->
+	<script src="https://a.amap.com/jsapi_demos/static/demo-center/js/demoutils.js"></script>
+	<script src="https://cache.amap.com/lbs/static/addToolbar.js"></script>
+	<script src="./assets/js/api.js"></script>
 </head>
 
 <body>
@@ -51,7 +57,7 @@
 				</ul>
 				<a class="nav-link" href="./user_info.html">
 					<img class="rounded-circle shadow" src="assets/img/demo/avatar2.jpg" width="20">
-					<span>BUPT</span>
+					<span id="Name">BUPT</span>
 				</a>
 			</div>
 		</div>
@@ -62,72 +68,47 @@
 			<div class="col-md-8">
 				<div class="card border-0 mb-5 box-shadow">
 					<div
-						style="background-image: url(./assets/img/demo/1.jpg); height: 350px; background-size: cover; background-repeat: no-repeat;">
+						style="background-image: url(./assets/img/demo/1.jpg); height: 350px; background-size: cover; background-repeat: no-repeat;"
+						id="Img">
 					</div>
 					<div class="card-body px-0 pb-0 d-flex flex-column align-items-start">
 						<h2 class="h2 font-weight-bold">
-							<a class="text-dark" href="./diary_show.html">Brain Stimulation Relieves Depression
-								Symptoms</a>
+							<a class="text-dark" href="#" id="title"></a>
 						</h2>
-						<p class="card-text">
-							Researchers have found an effective target in the brain for electrical stimulation to
-							improve mood in people suffering from depression.
+						<p class="card-text" id="desc">
+
+						</p>
+						<p class="card-text" id="content">
+
 						</p>
 						<div>
-							<small class="d-block"><a class="text-muted" href="#">Favid Rick</a></small>
-							<small class="text-muted">Dec 12 · 5 min read</small>
+							<small class="d-block"><a class="text-muted" href="#" id="author"></a></small>
+							<small class="text-muted" id="time"></small>
 						</div>
 					</div>
 				</div>
-				<h5 class="font-weight-bold spanborder"><span>Latest</span></h5>
-				<div class="mb-3 d-flex justify-content-between">
-					<div class="pr-3">
-						<h2 class="mb-1 h4 font-weight-bold">
-							<a class="text-dark" href="./diary_show.html">Nearly 200 Great Barrier Reef coral species also
-								live in the deep sea</a>
-						</h2>
-						<p>
-							There are more coral species lurking in the deep ocean that previously thought.
-						</p>
-						<div class="card-text text-muted small">
-							Jake Bittle in SCIENCE
+				<h5 class="font-weight-bold spanborder"><span>Road Map</span></h5>
+				<div class="mb-3 d-flex flex-column">
+					<div class="row mb-4">
+						<div class="col">
+							<input type="text" class="form-control input-round" placeholder="Start">
 						</div>
-						<small class="text-muted">Dec 12 · 5 min read</small>
+						<div class="col">
+							<input type="text" class="form-control input-round" placeholder="End">
+						</div>
+						<div class="col">
+							<button type="submit" class="btn btn-primary btn-round">Search</button>
+						</div>
 					</div>
-					<img height="120" src="./assets/img/demo/blog8.jpg">
+					<div id="panel"></div>
+					<div id="amap" class="custom-amap"></div>
 				</div>
-				<div class="mb-3 d-flex justify-content-between">
-					<div class="pr-3">
-						<h2 class="mb-1 h4 font-weight-bold">
-							<a class="text-dark" href="./diary_show.html">East Antarctica's glaciers are stirring</a>
-						</h2>
-						<p>
-							Nasa says it has detected the first signs of significant melting in a swathe of glaciers in
-							East Antarctica.
-						</p>
-						<div class="card-text text-muted small">
-							Jake Bittle in SCIENCE
-						</div>
-						<small class="text-muted">Dec 12 · 5 min read</small>
-					</div>
-					<img height="120" src="./assets/img/demo/1.jpg">
-				</div>
-				<div class="mb-3 d-flex justify-content-between">
-					<div class="pr-3">
-						<h2 class="mb-1 h4 font-weight-bold">
-							<a class="text-dark" href="./diary_show.html">50 years ago, armadillos hinted that DNA wasn’t
-								destiny</a>
-						</h2>
-						<p>
-							Nasa says it has detected the first signs of significant melting in a swathe of glaciers in
-							East Antarctica.
-						</p>
-						<div class="card-text text-muted small">
-							Jake Bittle in SCIENCE
-						</div>
-						<small class="text-muted">Dec 12 · 5 min read</small>
-					</div>
-					<img height="120" src="./assets/img/demo/5.jpg">
+				<div>
+					<input type="radio" name="rate" value="5" checked> 5
+					<input type="radio" name="rate" value="4"> 4
+					<input type="radio" name="rate" value="3"> 3
+					<input type="radio" name="rate" value="2"> 2
+					<input type="radio" name="rate" value="1"> 1
 				</div>
 			</div>
 			<div class="col-md-4 pl-4">
@@ -136,50 +117,67 @@
 					<ol class="list-featured">
 						<li>
 							<span>
+								<span>
+									<h6 class="font-weight-bold">
+										<a href="recommend_show.html" class="text-dark" id="article-title-1">Did Supernovae Kill Off Large
+											Ocean Animals?</a>
+									</h6>
+									<p class="text-muted" id="article-author-1">xiaosan in TRAVELER</p>
+								</span>
+						</li>
+						<li>
+							<span>
 								<h6 class="font-weight-bold">
-									<a href="recommend_show.html" class="text-dark">Did Supernovae Kill Off Large Ocean
-										Animals?</a>
+									<a href="recommend_show.html" class="text-dark" id="article-title-2">Humans Reversing Climate Clock:
+										50 Million Years</a>
 								</h6>
-								<p class="text-muted">
-									xiaosan in TRAVELER
-								</p>
+								<p class="text-muted" id="article-author-2">xiaosan in TRAVELER</p>
 							</span>
 						</li>
 						<li>
 							<span>
 								<h6 class="font-weight-bold">
-									<a href="recommend_show.html" class="text-dark">Humans Reversing Climate Clock: 50
-										Million Years</a>
+									<a href="recommend_show.html" class="text-dark" id="article-title-3">Unprecedented Views of the Birth
+										of Planets</a>
 								</h6>
-								<p class="text-muted">
-									xiaosan in TRAVELER
-								</p>
+								<p class="text-muted" id="article-author-3">xiaosan in TRAVELER</p>
 							</span>
 						</li>
 						<li>
 							<span>
 								<h6 class="font-weight-bold">
-									<a href="recommend_show.html" class="text-dark">Unprecedented Views of the Birth of
-										Planets</a>
+									<a href="recommend_show.html" class="text-dark" id="article-title-4">Effective New Target for
+										Mood-Boosting Brain Stimulation Found</a>
 								</h6>
-								<p class="text-muted">
-									xiaosan in TRAVELER
-								</p>
-							</span>
-						</li>
-						<li>
-							<span>
-								<h6 class="font-weight-bold">
-									<a href="recommend_show.html" class="text-dark">Effective New Target for
-										Mood-Boosting
-										Brain Stimulation Found</a>
-								</h6>
-								<p class="text-muted">
-									xiaosan in TRAVELER
-								</p>
+								<p class="text-muted" id="article-author-4">xiaosan in TRAVELER</p>
 							</span>
 						</li>
 					</ol>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container pt-4 pb-4">
+		<div class="border p-5 bg-lightblue">
+			<div class="row justify-content-between">
+				<div class="col-md-6">
+					<h5 class="font-weight-bold secondfont">Become a member</h5>
+					Get the latest news right in your inbox. It's free and you can unsubscribe at any time. We hate spam
+					as much as we do, so we never spam!
+				</div>
+				<div class="col-md-6">
+					<div class="row">
+						<div class="col-md-6">
+							<input type="text" class="form-control" placeholder="First name">
+						</div>
+						<div class="col-md-6">
+							<input type="text" class="form-control" placeholder="Last name">
+						</div>
+						<div class="col-md-12 mt-3">
+							<button type="submit" class="btn btn-success btn-block">Subscribe</button>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -206,6 +204,159 @@
 	<script src="./assets/js/vendor/popper.min.js"></script>
 	<script src="./assets/js/vendor/bootstrap.min.js"></script>
 	<script src="./assets/js/functions.js"></script>
+
+	<!-- amap api -->
+	<script type="text/javascript">
+		window._AMapSecurityConfig = {
+			securityJsCode: "757a38dcb0d378673a05306349e1cd08",
+		}
+	</script>
+	<script src="https://webapi.amap.com/maps?v=2.0&key=02568daf272bf973e7a49aef1d25e4a0&plugin=AMap.Driving"></script>
+	<script>
+		//基本地图加载
+		var map = new AMap.Map("amap", {
+			resizeEnable: true,
+			center: [116.397428, 39.90923],//地图中心点
+			zoom: 13 //地图显示的缩放级别
+		});
+		//构造路线导航类
+		var driving = new AMap.Driving({
+			map: map,
+			panel: "panel"
+		});
+		// 根据起终点名称规划驾车导航路线
+		// driving.search([
+		// 	{ keyword: '北京市地震局(公交站)', city: '北京' },
+		// 	{ keyword: '亦庄文化园(地铁站)', city: '北京' }
+		// ], function(status, result) {
+		// 	if (status === 'complete') {
+		// 		log.success('绘制驾车路线完成')
+		// 	} else {
+		// 		log.error('获取驾车数据失败：' + result)
+		// 	}
+		// });
+
+
+		// window.locationbar.search
+		// 路由携参
+		// let QUERY = 	{
+		// 		id: 123
+		// 	}
+
+		// 	function getData() {
+		// 		$.ajax({
+		// 			url: `${baseUrl}/api/article/detaile?id=${QUERY.id}`, // 存放即将与后端通信的接口 ****
+		// 			type: 'GET', // 请求类型 POST (data) GET (query params) PUT (data) DELETE
+		// 			success: function (res) {
+		// 				console.log(res) // 获取到详情
+		// 			}
+		// 		})
+		// 	}
+	</script>
+	<script src="./assets/js/xhr.js"></script>
+	<script>
+
+		function getQueryStringArgs() {
+			var qs = (location.search.length > 0 ? location.search.substring(1) : ""),
+				args = {},
+				items = qs.length ? qs.split("&") : [],
+				item = null,
+				name = null,
+				value = null,
+				i = 0,
+				len = items.length;
+
+			for (i = 0; i < len; i++) {
+				item = items[i].split("=");
+
+				// decodeURIComponent解码
+				name = decodeURIComponent(item[0]);
+				value = decodeURIComponent(item[1]);
+
+				if (name.length) {
+					args[name] = value;
+				}
+			}
+
+			return args;
+		}
+		let query = getQueryStringArgs();
+		let id = query.id;
+		if ($("input[name=rate]")) {
+			$("input[name=rate]").click(function () {
+				var score = $(this).val();
+				console.log(score)
+				$.ajax({
+					url: `${baseUrl}/api/article/${id}/rate?score=${score}`,
+					type: 'POST',
+					success: function (res) {
+						console.log(res)
+					}
+				})
+			});
+		}
+
+		window.onload = function () {
+			console.log($('#img'))
+			let query = getQueryStringArgs();
+			let id = query.id; // 获取查询参数中的 id
+
+			console.log(query);
+			img = document.getElementById('img');
+
+
+
+
+			$.ajax({
+				url: `${baseUrl}/api/article/${id}`, // Correctly format the URL
+				type: 'GET',
+				dataType: 'json',
+				contentType: 'application/json; charset=utf-8',
+				success: function (res) {
+					console.log(res);
+					console.log(res.title)
+					console.log(new Date(res.UpdatedAt).toLocaleString())
+					console.log(res.title)
+					$('#title').text(res.title);
+					$('#desc').text(res.desc);
+					$('#content').text(res.content);
+					$('#time').text(new Date(res.UpdatedAt).toLocaleString());
+					$('#author').text(res.auther);
+					if (res.img) {
+						$('#Img').css('backgroundImage', `url('${res.img}')`);
+					}
+
+
+				},
+				error: function (xhr, status, error) {
+					console.error('Error fetching data:', error);
+				}
+			});
+			$.ajax({
+				url: `${baseUrl}/api/article/{id}/relate`,
+				type: 'GET',
+				dataType: 'json',
+				success: function (data) {
+					// Check if we have at least 4 articles
+					if (data.length >= 4) {
+						// Update the HTML with the fetched data
+						for (let i = 0; i < 4; i++) {
+							$(`#article-title-${i + 1}`).text(data[i].title);
+							$(`#article-title-${i + 1}`).attr('href', `diary_show.html?id=${data[i].id}`);
+							$(`#article-author-${i + 1}`).text(data[i].author);
+						}
+					} else {
+						console.error('Not enough articles returned from API');
+					}
+				},
+				error: function (xhr, status, error) {
+					console.error('Error fetching data:', error);
+				}
+			});
+		};
+
+	</script>
+
 
 </body>
 

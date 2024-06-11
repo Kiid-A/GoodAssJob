@@ -3,6 +3,7 @@ package controllers
 import (
 	"fmt"
 	config "gowebserver/WebServer/common"
+	"gowebserver/WebServer/common/navi"
 	recommend "gowebserver/WebServer/common/rcmd"
 	models "gowebserver/WebServer/model"
 	"net/http"
@@ -307,4 +308,10 @@ func (mc *MapController) navi(c *gin.Context) {
 	var naviReq models.NaviReq
 	// id := c.Param("id")
 	c.BindJSON(&naviReq)
+	var err error
+	naviReq.GraphId, err = strconv.Atoi(c.Param("id"))
+	if err != nil {
+		c.JSON(500, gin.H{"error": "navi err"})
+	}
+	navi.Navi(naviReq)
 }

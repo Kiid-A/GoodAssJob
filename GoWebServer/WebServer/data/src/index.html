@@ -17,6 +17,7 @@
 		integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 	<!-- Main CSS -->
 	<link href="./assets/css/main.css" rel="stylesheet" />
+	<script src="./assets/js/api.js"></script>
 </head>
 
 <body>
@@ -58,9 +59,9 @@
 						<a class="nav-link" href="./register.html">Sign up</a>
 					</li>
 				</ul>
-				<a class="nav-link" href="./user_info.html">
+				<a class="nav-link" id="userInfo" href="./user_info.html">
 					<img class="rounded-circle shadow" src="assets/img/demo/avatar2.jpg" width="20">
-					<span>BUPT</span>
+					<span id="Name">BUPT</span>
 				</a>
 			</div>
 		</div>
@@ -96,16 +97,16 @@
 					</div>
 					<div class="card-body px-0 pb-0 d-flex flex-column align-items-start">
 						<h2 class="h4 font-weight-bold">
-							<a class="text-dark" href="recommend_show.html">Brain Stimulation Relieves Depression
+							<a class="text-dark" href="recommend_show.html" id="article-title-0">Brain Stimulation Relieves Depression
 								Symptoms</a>
 						</h2>
-						<p class="card-text">
+						<p class="card-text" id="article-desc-0">
 							Researchers have found an effective target in the brain for electrical stimulation to
 							improve mood in people suffering from depression.
 						</p>
 						<div>
-							<small class="d-block"><a class="text-muted" href="#">Favid Rick</a></small>
-							<small class="text-muted">Dec 12 &middot; 5 min read</small>
+							<small class="d-block"><a class="text-muted" href="#" id="article-author-0">Favid Rick</a></small>
+							<small class="text-muted" id="article-time-0">Dec 12 &middot; 5 min read</small>
 						</div>
 					</div>
 				</div>
@@ -116,40 +117,45 @@
 						<img height="80" src="./assets/img/demo/blog4.jpg">
 						<div class="pl-3">
 							<h2 class="mb-2 h6 font-weight-bold">
-								<a class="text-dark" href="recommend_show.html">Nasa's IceSat space laser makes height
+								<a class="text-dark" href="recommend_show.html" id="article-title-1">Nasa's IceSat space laser makes
+									height
 									maps
 									of Earth</a>
 							</h2>
-							<div class="card-text text-muted small">
+							<div class="card-text text-muted small" id="article-author-1">
 								Jake Bittle in LOVE/HATE
 							</div>
-							<small class="text-muted">Dec 12 &middot; 5 min read</small>
+							<small class="text-muted" id="article-time-1">Dec 12 &middot; 5 min read</small>
 						</div>
 					</div>
 					<div class="mb-3 d-flex align-items-center">
 						<img height="80" src="./assets/img/demo/blog5.jpg">
 						<div class="pl-3">
 							<h2 class="mb-2 h6 font-weight-bold">
-								<a class="text-dark" href="recommend_show.html">Underwater museum brings hope to Lake
-									Titicaca</a>
+								<a class="text-dark" href="recommend_show.html" id="article-title-2">Nasa's IceSat space laser makes
+									height
+									maps
+									of Earth</a>
 							</h2>
-							<div class="card-text text-muted small">
+							<div class="card-text text-muted small" id="article-author-2">
 								Jake Bittle in LOVE/HATE
 							</div>
-							<small class="text-muted">Dec 12 &middot; 5 min read</small>
+							<small class="text-muted" id="article-time-2">Dec 12 &middot; 5 min read</small>
 						</div>
 					</div>
 					<div class="mb-3 d-flex align-items-center">
 						<img height="80" src="./assets/img/demo/blog6.jpg">
 						<div class="pl-3">
 							<h2 class="mb-2 h6 font-weight-bold">
-								<a class="text-dark" href="recommend_show.html">Sun-skimming probe starts calling
-									home</a>
+								<a class="text-dark" href="recommend_show.html" id="article-title-3">Nasa's IceSat space laser makes
+									height
+									maps
+									of Earth</a>
 							</h2>
-							<div class="card-text text-muted small">
+							<div class="card-text text-muted small" id="article-author-3">
 								Jake Bittle in LOVE/HATE
 							</div>
-							<small class="text-muted">Dec 12 &middot; 5 min read</small>
+							<small class="text-muted" id="article-time-3">Dec 12 &middot; 5 min read</small>
 						</div>
 					</div>
 				</div>
@@ -164,51 +170,54 @@
 				<div class="mb-3 d-flex justify-content-between">
 					<div class="pr-3">
 						<h2 class="mb-1 h4 font-weight-bold">
-							<a class="text-dark" href="recommend_show.html">Nearly 200 Great Barrier Reef coral species
+							<a class="text-dark" href="recommend_show.html" id="article-title-4">Nearly 200 Great Barrier Reef coral
+								species
 								also
 								live in the deep sea</a>
 						</h2>
-						<p>
+						<p id="article-desc-4">
 							There are more coral species lurking in the deep ocean that previously thought.
 						</p>
-						<div class="card-text text-muted small">
+						<div class="card-text text-muted small" id="article-author-4">
 							xiaosan in TRAVELER
 						</div>
-						<small class="text-muted">Dec 12 &middot; 5 min read</small>
+						<small class="text-muted" id="article-time-4">Dec 12 &middot; 5 min read</small>
 					</div>
 					<img height="120" src="./assets/img/demo/blog8.jpg">
 				</div>
 				<div class="mb-3 d-flex justify-content-between">
 					<div class="pr-3">
 						<h2 class="mb-1 h4 font-weight-bold">
-							<a class="text-dark" href="recommend_show.html">East Antarctica's glaciers are stirring</a>
+							<a class="text-dark" href="recommend_show.html" id="article-title-5">Nearly 200 Great Barrier Reef coral
+								species
+								also
+								live in the deep sea</a>
 						</h2>
-						<p>
-							Nasa says it has detected the first signs of significant melting in a swathe of glaciers in
-							East Antarctica.
+						<p id="article-desc-5">
+							There are more coral species lurking in the deep ocean that previously thought.
 						</p>
-						<div class="card-text text-muted small">
+						<div class="card-text text-muted small" id="article-author-5">
 							xiaosan in TRAVELER
 						</div>
-						<small class="text-muted">Dec 12 &middot; 5 min read</small>
+						<small class="text-muted" id="article-time-5">Dec 12 &middot; 5 min read</small>
 					</div>
 					<img height="120" src="./assets/img/demo/1.jpg">
 				</div>
 				<div class="mb-3 d-flex justify-content-between">
 					<div class="pr-3">
 						<h2 class="mb-1 h4 font-weight-bold">
-							<a class="text-dark" href="recommend_show.html">50 years ago, armadillos hinted that DNA
-								wasn’t
-								destiny</a>
+							<a class="text-dark" href="recommend_show.html" id="article-title-6">Nearly 200 Great Barrier Reef coral
+								species
+								also
+								live in the deep sea</a>
 						</h2>
-						<p>
-							Nasa says it has detected the first signs of significant melting in a swathe of glaciers in
-							East Antarctica.
+						<p id="article-desc-6">
+							There are more coral species lurking in the deep ocean that previously thought.
 						</p>
-						<div class="card-text text-muted small">
+						<div class="card-text text-muted small" id="article-author-6">
 							xiaosan in TRAVELER
 						</div>
-						<small class="text-muted">Dec 12 &middot; 5 min read</small>
+						<small class="text-muted" id="article-time-6">Dec 12 &middot; 5 min read</small>
 					</div>
 					<img height="120" src="./assets/img/demo/5.jpg">
 				</div>
@@ -219,47 +228,33 @@
 					<li>
 						<span>
 							<h6 class="font-weight-bold">
-								<a href="recommend_show.html" class="text-dark">Did Supernovae Kill Off Large Ocean
-									Animals?</a>
+								<a href="diary_show.html" class="text-dark" id="article-title-7"></a>
 							</h6>
-							<p class="text-muted">
-								xiaosan in TRAVELER
-							</p>
+							<p class="text-muted" id="article-author-7"></p>
 						</span>
 					</li>
 					<li>
 						<span>
 							<h6 class="font-weight-bold">
-								<a href="recommend_show.html" class="text-dark">Humans Reversing Climate Clock: 50
-									Million
-									Years</a>
+								<a href="diary_show.html" class="text-dark" id="article-title-8"></a>
 							</h6>
-							<p class="text-muted">
-								xiaosan in TRAVELER
-							</p>
+							<p class="text-muted" id="article-author-8"></p>
 						</span>
 					</li>
 					<li>
 						<span>
 							<h6 class="font-weight-bold">
-								<a href="recommend_show.html" class="text-dark">Unprecedented Views of the Birth of
-									Planets</a>
+								<a href="diary_show.html" class="text-dark" id="article-title-9"></a>
 							</h6>
-							<p class="text-muted">
-								xiaosan in TRAVELER
-							</p>
+							<p class="text-muted" id="article-author-9"></p>
 						</span>
 					</li>
 					<li>
 						<span>
 							<h6 class="font-weight-bold">
-								<a href="recommend_show.html" class="text-dark">Effective New Target for Mood-Boosting
-									Brain
-									Stimulation Found</a>
+								<a href="diary_show.html" class="text-dark" id="article-title-10"></a>
 							</h6>
-							<p class="text-muted">
-								xiaosan in TRAVELER
-							</p>
+							<p class="text-muted" id="article-author-10"></p>
 						</span>
 					</li>
 				</ol>
@@ -289,6 +284,70 @@
 	<script src="./assets/js/vendor/popper.min.js"></script>
 	<script src="./assets/js/vendor/bootstrap.min.js"></script>
 	<script src="./assets/js/functions.js"></script>
+	<script src="./assets/js/xhr.js"></script>
+	<script>
+		window.onload = function () {
+			$.ajax({
+				url: `${baseUrl}/api/map/fine`,
+				type: 'GET',
+				dataType: 'json',
+				success: function (data) {
+					// Check if we have at least 4 articles
+					for (let i = 0; i < 4; i++) {
+						$(`#article-title-${i}`).text(data[i].Name);
+						$(`#article-title-${i}`).attr('href', `recommend_show.html?id=${data[i].Id}`);
+						$(`#article-author-${i}`).text(data[i].Tags);
+						$(`#article-desc-${i}`).text(data[i].Summary);
+						$(`#article-time-${i}`).text(data[i].rate);
+					}
+
+				},
+				error: function (xhr, status, error) {
+					console.error('Error fetching data:', error);
+				}
+			});
+			$.ajax({
+				url: `${baseUrl}/api/article/recommend`,
+				type: 'GET',
+				dataType: 'json',
+				success: function (data) {
+					// Check if we have at least 4 articles
+					for (let i = 0; i < 3; i++) {
+						$(`#article-title-${i + 4}`).text(data[i].title);
+						$(`#article-title-${i + 4}`).attr('href', `diary_show.html?id=${data[i].id}`);
+						$(`#article-author-${i + 4}`).text(data[i].author);
+						$(`#article-desc-${i + 4}`).text(data[i].summary);
+						$(`#article-time-${i + 4}`).text(new Date(data[i].UpdatedAt).toLocaleString());
+					}
+
+				},
+				error: function (xhr, status, error) {
+					console.error('Error fetching data:', error);
+				}
+			});
+			$.ajax({
+				url: `${baseUrl}/api/article/fine`,
+				type: 'GET',
+				dataType: 'json',
+				success: function (data) {
+					// Check if we have at least 4 articles
+					if (data.length >= 4) {
+						// Update the HTML with the fetched data
+						for (let i = 0; i < 4; i++) {
+							$(`#article-title-${i + 7}`).text(data[i].title);
+							$(`#article-title-${i + 7}`).attr('href', `diary_show.html?id=${data[i].id}`);
+							$(`#article-author-${i + 7}`).text(data[i].author);
+						}
+					} else {
+						console.error('Not enough articles returned from API');
+					}
+				},
+				error: function (xhr, status, error) {
+					console.error('Error fetching data:', error);
+				}
+			});
+		}
+	</script>
 </body>
 
 </html>

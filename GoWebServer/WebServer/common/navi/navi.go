@@ -4,42 +4,15 @@ import (
 	"container/heap"
 	"encoding/json"
 	"fmt"
+	config "gowebserver/WebServer/common"
+	models "gowebserver/WebServer/model"
 	"io"
 	"math"
+	"math/rand"
 	"os"
 	"sort"
+	"strconv"
 )
-
-// 定义图结构
-type Graph struct {
-	Name    string            `json:"name"`
-	AdjList map[string][]Edge `json:"adjList"`
-	Points  []Point           `json:"points"`
-}
-
-type Edge struct {
-	Destination int `json:"destination"`
-	Weight      int `json:"weight"`
-}
-
-type Point struct {
-	Name   string  `json:"name"`
-	Index  int     `json:"index"`
-	X      int     `json:"x"`
-	Y      int     `json:"y"`
-	Type   string  `json:"type"`
-	Rating float64 `json:"rating"`
-	Tag    string  `json:"tag"`
-}
-
-// 最小堆实现
-type Item struct {
-	vertex   int
-	priority int
-	index    int
-}
-
-type PriorityQueue []*Item
 
 func (pq PriorityQueue) Len() int           { return len(pq) }
 func (pq PriorityQueue) Less(i, j int) bool { return pq[i].priority < pq[j].priority }
@@ -59,33 +32,58 @@ func (pq *PriorityQueue) Pop() interface{} {
 	*pq = old[0 : n-1]
 	return item
 }
-func dijkstraWithWaypoints(graph *Graph, waypoints []int) ([]int, *Point) {
+
+// calculateTotalDistance calculates the total distance for a given path in the graph
+func calculateTotalDistance(graph *Graph, path []int) int {
+	totalDistance := 0
+	if len(path) < 2 {
+		return 0 // If the path has less than two points, the distance is zero
+	}
+
+	// Iterate through the path array, summing the distances between consecutive points
+	for i := 0; i < len(path)-1; i++ {
+		current := path[i]
+		next := path[i+1]
+
+		// Find the edge between the current and next node and add its weight to the total distance
+		for _, edge := range graph.AdjList[fmt.Sprintf("%d", current)] {
+			if edge.Destination == next {
+				totalDistance += edge.Weight
+				break
+			}
+		}
+	}
+	return totalDistance
+}
+func dijkstraWithWaypoints(graph *Graph, waypoints []int, objectType string) ([]int, *Point) {
 	fullPath := []int{}
-	closestToilet := &Point{Index: -1, Type: "None"}
-	closestToiletDistance := math.MaxInt64
+	closestObject := &Point{Index: -1, Type: "None"}
+	closestObjectDistance := math.MaxInt64
 
 	for i := 0; i < len(waypoints)-1; i++ {
-		partialPath, tempClosestToilet, tempClosestToiletDistance := dijkstraPath(graph, waypoints[i], waypoints[i+1])
+		partialPath, tempClosestObject, tempClosestObjectDistance := dijkstraPath(graph, waypoints[i], waypoints[i+1], objectType)
 		fullPath = append(fullPath, partialPath[:len(partialPath)-1]...) // Append partial path except the last node to avoid duplication
 
-		// Check and update closest toilet information
-		if tempClosestToiletDistance < closestToiletDistance {
-			closestToilet = tempClosestToilet
-			closestToiletDistance = tempClosestToiletDistance
+		// Check and update closest object information
+		if tempClosestObjectDistance < closestObjectDistance {
+			closestObject = tempClosestObject
+			closestObjectDistance = tempClosestObjectDistance
 		}
 	}
 	fullPath = append(fullPath, waypoints[len(waypoints)-1]) // Append the last target point
 
-	return fullPath, closestToilet
+	return fullPath, closestObject
 }
 
-func dijkstraPath(graph *Graph, start, target int) ([]int, *Point, int) {
+// dijkstraPath finds the shortest path between two points and the closest object of a given type using Dijkstra's algorithm
+
+func dijkstraPath(graph *Graph, start, target int, objectType string) ([]int, *Point, int) {
 	dist := make(map[int]int)
 	prev := make(map[int]int)
 	pq := make(PriorityQueue, 0)
 	heap.Init(&pq)
-	closestToilet := &Point{Index: -1, Type: "None"}
-	closestToiletDistance := math.MaxInt64
+	closestObject := &Point{Index: -1, Type: "None"}
+	closestObjectDistance := math.MaxInt64
 
 	for _, p := range graph.Points {
 		dist[p.Index] = math.MaxInt64
@@ -111,31 +109,32 @@ func dijkstraPath(graph *Graph, start, target int) ([]int, *Point, int) {
 			}
 		}
 
-		// Update the closest toilet information if this point is a toilet
-		if graph.Points[u].Type == "Toilet" && dist[u] < closestToiletDistance {
-			closestToilet = &graph.Points[u]
-			closestToiletDistance = dist[u]
+		// Update the closest object information if this point is of the specified type
+		if graph.Points[u].Type == objectType && dist[u] < closestObjectDistance {
+			closestObject = &graph.Points[u]
+			closestObjectDistance = dist[u]
 		}
 	}
 
 	// Build path
+	// Build path
 	path := []int{}
 	step := target
 	for step != -1 {
-		path = append([]int{step}, path...)
-		step = prev[step]
+		path = append([]int{step}, path...) // 将当前 step 添加到 path 的开始
+		step = prev[step]                   // 更新 step 为前一个节点
 	}
-	return path, closestToilet, closestToiletDistance
+	return path, closestObject, closestObjectDistance
 }
 
 // 提取并排序终点相连的景点
-func extractAndSortScenic(graph *Graph, target int) []Point {
+func extractAndSortScenic(graph *Graph, target int, maxDistance float64) []Point {
 	scenics := []Point{}
 
-	// 检查与终点直接相连的点
-	for _, edge := range graph.AdjList[fmt.Sprintf("%d", target)] {
-		point := graph.Points[edge.Destination]
-		if point.Type == "Scenic" {
+	targetPoint := graph.Points[target]
+	// 检查图中所有的景点
+	for _, point := range graph.Points {
+		if point.Type == "Scenic" && distance(targetPoint, point) <= maxDistance {
 			scenics = append(scenics, point)
 		}
 	}
@@ -148,9 +147,119 @@ func extractAndSortScenic(graph *Graph, target int) []Point {
 	return scenics
 }
 
-func main() {
+// 计算两点之间的欧几里得距离
+func distance(p1, p2 Point) float64 {
+	return math.Sqrt(float64((p1.X-p2.X)*(p1.X-p2.X) + (p1.Y-p2.Y)*(p1.Y-p2.Y)))
+}
+
+func dijkstraWithTime(graph *Graph, waypoints []int) []int {
+
+	fullPath := []int{}
+
+	for i := 0; i < len(waypoints)-1; i++ {
+		partialPath := dijkstraPathTime(graph, waypoints[i], waypoints[i+1])
+		fullPath = append(fullPath, partialPath[:len(partialPath)-1]...) // Append partial path except the last node to avoid duplication
+	}
+	fullPath = append(fullPath, waypoints[len(waypoints)-1]) // Append the last target point
+
+	return fullPath
+}
+
+// dijkstraPath finds the shortest path between two points and the closest object of a given type using Dijkstra's algorithm
+
+func dijkstraPathTime(graph *Graph, start int, target int) []int {
+	dist := make(map[int]int)
+	prev := make(map[int]int)
+	pq := make(PriorityQueue, 0)
+	heap.Init(&pq)
+
+	for _, p := range graph.Points {
+		dist[p.Index] = math.MaxInt64
+		prev[p.Index] = -1
+		heap.Push(&pq, &Item{vertex: p.Index, priority: math.MaxInt64})
+	}
+
+	dist[start] = 0
+	heap.Push(&pq, &Item{vertex: start, priority: 0})
+
+	for pq.Len() > 0 {
+		u := heap.Pop(&pq).(*Item).vertex
+		if u == target {
+			break
+		}
+
+		for _, edge := range graph.AdjList[fmt.Sprintf("%d", u)] {
+			alt := dist[u] + edge.Time
+			if alt < dist[edge.Destination] {
+				dist[edge.Destination] = alt
+				prev[edge.Destination] = u
+				heap.Push(&pq, &Item{vertex: edge.Destination, priority: alt})
+			}
+		}
+	}
+
+	// Build path
+	// Build path
+	path := []int{}
+	step := target
+	for step != -1 {
+		path = append([]int{step}, path...) // 将当前 step 添加到 path 的开始
+		step = prev[step]                   // 更新 step 为前一个节点
+	}
+	return path
+}
+
+func reconstructPath(prev map[int]int, target int) []int {
+	var path []int
+	for step := target; step != -1; step = prev[step] {
+		path = append([]int{step}, path...)
+	}
+	return path
+}
+
+func calculateTotalTime(graph *Graph, path []int) int {
+	totalTime := 0
+	if len(path) < 2 {
+		return 0
+	}
+	for i := 0; i < len(path)-1; i++ {
+		current := path[i]
+		next := path[i+1]
+		for _, edge := range graph.AdjList[fmt.Sprintf("%d", current)] {
+			if edge.Destination == next {
+				totalTime += edge.Time
+				break
+			}
+		}
+	}
+	return totalTime
+}
+
+func calculatePaths(graph Graph, start int, target int, temp []int, objectType string) PathResults {
+	waypoints := append([]int{start}, temp...)
+	waypoints = append(waypoints, target)
+
+	path, closestObject := dijkstraWithWaypoints(&graph, waypoints, objectType)
+	totalDistance := calculateTotalDistance(&graph, path)
+	timePath := dijkstraWithTime(&graph, waypoints)
+	totalTime := calculateTotalTime(&graph, timePath)
+
+	return PathResults{
+		ClosestObject: closestObject,
+		Path:          path,
+		TotalDistance: totalDistance,
+		TimePath:      timePath,
+		TotalTime:     totalTime,
+	}
+}
+func Navi(req models.NaviReq) {
 	// 读取并解析JSON文件
-	jsonFile, err := os.Open("graph.json")
+	graphId := req.GraphId
+	start := req.Start
+	target := req.Target
+	temp := req.Temp
+	fileName := config.MapPath + "graph-" + strconv.Itoa(graphId) + ".json"
+	jsonFile, err := os.Open(fileName)
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -160,43 +269,39 @@ func main() {
 	byteValue, _ := io.ReadAll(jsonFile)
 
 	var graph Graph
-	json.Unmarshal(byteValue, &graph)
-
+	if err := json.Unmarshal(byteValue, &graph); err != nil {
+		fmt.Println("Error parsing JSON:", err)
+		return
+	}
 	pointsJSON, _ := json.MarshalIndent(graph.Points, "", "  ")
-	os.WriteFile("map.json", pointsJSON, 0644)
-	// 计算最短路径和最近的Toilet
-	var start *int
-	*start = 0
-	target := 8
-	temp := []int{3}                       // Only one intermediate waypoint
-	waypoints := append([]int{0}, temp...) // Start from 0, add intermediate points
-	waypoints = append(waypoints, 8)       // Append the final target (8)
+	mapName := config.MapPath + "map-" + strconv.Itoa(graphId) + ".json"
+	os.WriteFile(mapName, pointsJSON, 0644)
 
-	path, closestToilet := dijkstraWithWaypoints(&graph, waypoints)
-	fmt.Println("Complete path considering waypoints:", path)
-	if closestToilet != nil {
-		fmt.Println("Closest Toilet is at point:", closestToilet.Name, "with Index:", closestToilet.Index)
-	} else {
-		fmt.Println("No Toilet found.")
+	// 为每个边计算 Time
+	for key := range graph.AdjList {
+		for i := range graph.AdjList[key] {
+			graph.AdjList[key][i].Time = int(100 * float64(graph.AdjList[key][i].Weight) * (rand.Float64()))
+		}
 	}
 
-	pathJSON, _ := json.MarshalIndent(path, "", "  ")
-	os.WriteFile("path.json", pathJSON, 0644)
-	fmt.Println("Shortest path from", start, "to", target, "is:", path)
+	results := calculatePaths(graph, start, target, temp, "Toilet")
 
-	toiletJSON, _ := json.MarshalIndent(closestToilet, "", "  ")
-	if closestToilet.Index != -1 {
-		fmt.Println("Closest Toilet is at point:", closestToilet.Name, "with Index:", closestToilet.Index)
-		os.WriteFile("toilet.json", toiletJSON, 0644)
-	} else {
-		fmt.Println("No Toilet found.")
-		os.WriteFile("toilet.json", []byte("{\"message\": \"No Toilet found.\"}"), 0644)
+	// 将所有结果保存到一个 JSON 文件中
+	resultsJSON, err := json.MarshalIndent(results, "", "  ")
+	if err != nil {
+		fmt.Println("Error marshalling results to JSON:", err)
+		return
 	}
+	resultName := config.MapPath + "result-" + strconv.Itoa(graphId) + ".json"
+	os.WriteFile(resultName, resultsJSON, 0644)
+	fmt.Println("All path results saved to " + resultName)
 
 	// 提取并排序终点相连的景点
-	scenics := extractAndSortScenic(&graph, target)
+	scenics := extractAndSortScenic(&graph, target, 1500)
+
 	scenicJSON, _ := json.MarshalIndent(scenics, "", "  ")
-	os.WriteFile("scenic.json", scenicJSON, 0644)
+	scenicName := config.MapPath + "scenic-" + strconv.Itoa(graphId) + ".json"
+	os.WriteFile(scenicName, scenicJSON, 0644)
 	fmt.Println("Scenic points connected to", target, "sorted by rating:")
 	for _, scenic := range scenics {
 		fmt.Printf("Name: %s, Rating: %.1f\n", scenic.Name, scenic.Rating)

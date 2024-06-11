@@ -8,6 +8,7 @@
 // document.getElementById('submitLogin').onclick = function () {
 //   console.dir(document.getElementById('username').value)
 // }
+let userid
 
 if ($('#submitLogin')) {
   $('#submitLogin').click(function () {
@@ -20,13 +21,30 @@ if ($('#submitLogin')) {
       type: 'POST', // 请求类型 POST (data) GET (query params) PUT (data) DELETE 
       success: function (res) {
         console.log(res)
-        if (res.code == 200) {
-          alert('登录成功')
-          window.location.href = './user_info.html'
-        }
+        userid = res.id
+        alert('登录成功')
+        $(`#userInfo`).attr('href', `user_info.html?id=${res.id}`);
+        window.location.href = './user_info.html?id=' + res.id
+
       }
     })
   })
+}
+
+//显示当前登录用户昵称
+window.onload = function () {
+  $.ajax({
+    url: `${baseUrl}/api/user/${userid}/info`, // Correctly format the URL
+    type: 'GET',
+    dataType: 'json',
+    contentType: 'application/json; charset=utf-8',
+    success: function (res) {
+      $('#nickname').text(res.user.name)
+    },
+    error: function (xhr, status, error) {
+      console.error('Error fetching data:', error);
+    }
+  });
 }
 
 if ($('#submitSignup')) {
@@ -59,6 +77,10 @@ if ($('#submitSignup')) {
       data: payload,
       success: function (res) {
         console.log(res)
+        if (res.code == 200) {
+          alert('注册成功')
+          window.location.href = './login.html'
+        }
       }
     })
   })
@@ -95,6 +117,14 @@ if ($('#submitArticle')) {
   })
 }
 
+if ($('#searchMap')) {
+  $('#searchMap').click(function () {
+    let search = $('#search').val()
+    console.log(search)
+    console.log($('#search'))
+    window.location.href = './search.html?search=' + search
+  })
+}
 // http://192.168.194.155:9999/api/login?username=root&passwd=1234
 
 // www.baidu.com
@@ -110,7 +140,7 @@ if (document.getElementById('infoSubmit')) {
     let name = document.getElementById('name').value
     let gender = document.getElementById('gender').value
     $.ajax({
-      url: `${baseUrl}/user/modifyInfo?name=${name}&gender=${gender}`,
+      url: `${baseUrl}/user/${userid}?name=${name}`,
       type: 'PUT',
       success: function (res) {
         console.log(res)

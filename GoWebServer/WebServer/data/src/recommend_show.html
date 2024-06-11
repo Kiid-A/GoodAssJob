@@ -57,7 +57,7 @@
 				</ul>
 				<a class="nav-link" href="./user_info.html">
 					<img class="rounded-circle shadow" src="assets/img/demo/avatar2.jpg" width="20">
-					<span>BUPT</span>
+					<span id="Name">BUPT</span>
 				</a>
 			</div>
 		</div>
@@ -67,7 +67,7 @@
 		<div class="row">
 			<div class="col-md-8">
 				<div class="card border-0 mb-5 box-shadow">
-					<div
+					<div id="Img"
 						style="background-image: url(./assets/img/demo/1.jpg); height: 350px; background-size: cover; background-repeat: no-repeat;">
 					</div>
 					<div class="card-body px-0 pb-0 d-flex flex-column align-items-start">
@@ -116,46 +116,39 @@
 					<ol class="list-featured">
 						<li>
 							<span>
+								<span>
+									<h6 class="font-weight-bold">
+										<a href="recommend_show.html" class="text-dark" id="article-title-1">Did Supernovae Kill Off Large
+											Ocean Animals?</a>
+									</h6>
+									<p class="text-muted" id="article-author-1">xiaosan in TRAVELER</p>
+								</span>
+						</li>
+						<li>
+							<span>
 								<h6 class="font-weight-bold">
-									<a href="recommend.html" class="text-dark">Did Supernovae Kill Off Large Ocean
-										Animals?</a>
+									<a href="recommend_show.html" class="text-dark" id="article-title-2">Humans Reversing Climate Clock:
+										50 Million Years</a>
 								</h6>
-								<p class="text-muted">
-									xiaosan in TRAVELER
-								</p>
+								<p class="text-muted" id="article-author-2">xiaosan in TRAVELER</p>
 							</span>
 						</li>
 						<li>
 							<span>
 								<h6 class="font-weight-bold">
-									<a href="recommend.html" class="text-dark">Humans Reversing Climate Clock: 50
-										Million Years</a>
+									<a href="recommend_show.html" class="text-dark" id="article-title-3">Unprecedented Views of the Birth
+										of Planets</a>
 								</h6>
-								<p class="text-muted">
-									xiaosan in TRAVELER
-								</p>
+								<p class="text-muted" id="article-author-3">xiaosan in TRAVELER</p>
 							</span>
 						</li>
 						<li>
 							<span>
 								<h6 class="font-weight-bold">
-									<a href="recommend.html" class="text-dark">Unprecedented Views of the Birth of
-										Planets</a>
+									<a href="recommend_show.html" class="text-dark" id="article-title-4">Effective New Target for
+										Mood-Boosting Brain Stimulation Found</a>
 								</h6>
-								<p class="text-muted">
-									xiaosan in TRAVELER
-								</p>
-							</span>
-						</li>
-						<li>
-							<span>
-								<h6 class="font-weight-bold">
-									<a href="recommend.html" class="text-dark">Effective New Target for Mood-Boosting
-										Brain Stimulation Found</a>
-								</h6>
-								<p class="text-muted">
-									xiaosan in TRAVELER
-								</p>
+								<p class="text-muted" id="article-author-4">xiaosan in TRAVELER</p>
 							</span>
 						</li>
 					</ol>
@@ -309,6 +302,21 @@
 
 			return args;
 		}
+		let query = getQueryStringArgs();
+		let id = query.id;
+		if ($("input[name=rate]")) {
+			$("input[name=rate]").click(function () {
+				var score = $(this).val();
+				console.log(score)
+				$.ajax({
+					url: `${baseUrl}/api/article/${id}/rate?score=${score}`,
+					type: 'POST',
+					success: function (res) {
+						console.log(res)
+					}
+				})
+			});
+		}
 
 		window.onload = function () {
 			let query = getQueryStringArgs();
@@ -317,20 +325,50 @@
 			console.log(query);
 
 			$.ajax({
-				url: `${baseUrl}/api/article/${id}`, // Correctly format the URL
+				url: `${baseUrl}/api/map/${id}`, // Correctly format the URL
 				type: 'GET',
 				dataType: 'json',
 				contentType: 'application/json; charset=utf-8',
 				success: function (res) {
 					console.log(res);
-					console.log(res.title)
+					console.log(res.Name)
 					console.log(new Date(res.UpdatedAt).toLocaleString())
-					console.log(res.title)
-					$('#title').text(res.title);
-					$('#desc').text(res.summary);
-					$('#content').text(res.content);
+					console.log(res.hot)
+					var img_path = res.Img;
+
+					// 确保 img_path 是字符串类型
+					if (typeof img_path === "string" && img_path.startsWith(",data/src/")) {
+						img_path = img_path.replace(",data/src/", "./");
+					}
+
+					console.log(img_path);
+					$('#title').text(res.Name);
+					$('#desc').text(res.Tags);
+					$('#content').text(res.Summary);
 					$('#time').text(new Date(res.UpdatedAt).toLocaleString());
-					$('#author').text(res.author);
+					$('#author').text(res.rate);
+					$('#Img').css('backgroundImage', `url('${img_path}')`);
+				},
+				error: function (xhr, status, error) {
+					console.error('Error fetching data:', error);
+				}
+			});
+			$.ajax({
+				url: `${baseUrl}/api/map/{id}/relate`,
+				type: 'GET',
+				dataType: 'json',
+				success: function (data) {
+					// Check if we have at least 4 articles
+					if (data.length >= 4) {
+						// Update the HTML with the fetched data
+						for (let i = 0; i < 4; i++) {
+							$(`#article-title-${i + 1}`).text(data[i].title);
+							$(`#article-title-${i + 1}`).attr('href', `recommend_show.html?id=${data[i].id}`);
+							$(`#article-author-${i + 1}`).text(data[i].author);
+						}
+					} else {
+						console.error('Not enough articles returned from API');
+					}
 				},
 				error: function (xhr, status, error) {
 					console.error('Error fetching data:', error);
@@ -338,6 +376,8 @@
 			});
 		};
 	</script>
+
+
 </body>
 
 </html>

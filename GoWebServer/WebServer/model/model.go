@@ -85,9 +85,10 @@ type Area struct {
 }
 
 type NaviReq struct {
-	Start  int   `json:"start"`
-	Temp   []int `json:"temp"`
-	Target int   `json:"target"`
+	GraphId int   `json:graph_id`
+	Start   int   `json:"start"`
+	Temp    []int `json:"temp"`
+	Target  int   `json:"target"`
 }
 
 type TimeFirst struct {

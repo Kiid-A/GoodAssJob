@@ -1,0 +1,40 @@
+.custom-amap {
+  width: 100%;
+  height: 300;
+  border-radius: 10px;
+  border: 1px solid #e6e6e6;
+}
+
+#panel .amap-call {
+  display: none;
+}
+#panel .amap-lib-driving {
+  border: 1px solid #e6e6e6;
+  border-radius: 10px;
+  overflow: hidden;
+}
+#panel .amap-lib-driving b,
+#panel .amap-lib-driving strong,
+#panel dt {
+  font-weight: normal;
+}
+#panel .amap-lib-driving .planTitle {
+  border-top: 0;
+  padding: 10px;
+}
+#panel .amap-lib-driving .plan dt.start {
+  border-top: 0;
+}
+#panel .amap-lib-driving .plan dt.end {
+  border-bottom: 0;
+}
+#panel .amap-lib-driving .plan dt {
+  line-height: 30px;
+}
+#panel .amap-lib-driving .plan-nobus {
+  padding: 10px;
+}
+#panel .planTitle_route {
+  font-size: 12px;
+  padding-bottom: 5px;
+}/*# sourceMappingURL=s.css.map */
