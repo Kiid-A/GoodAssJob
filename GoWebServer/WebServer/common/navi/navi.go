@@ -235,24 +235,27 @@ func calculateTotalTime(graph *Graph, path []int) int {
 	return totalTime
 }
 
-func calculatePaths(graph Graph, start int, target int, temp []int, objectType string) PathResults {
+func calculatePaths(graph Graph, start int, target int, temp []int) PathResults {
 	waypoints := append([]int{start}, temp...)
 	waypoints = append(waypoints, target)
 
-	path, closestObject := dijkstraWithWaypoints(&graph, waypoints, objectType)
+	path, closestObToi := dijkstraWithWaypoints(&graph, waypoints, "Toilet")
+	path, closestObRes := dijkstraWithWaypoints(&graph, waypoints, "Restaurant")
 	totalDistance := calculateTotalDistance(&graph, path)
 	timePath := dijkstraWithTime(&graph, waypoints)
 	totalTime := calculateTotalTime(&graph, timePath)
 
 	return PathResults{
-		ClosestObject: closestObject,
+		ClosestRes:    closestObRes,
+		ClosestToi:    closestObToi,
 		Path:          path,
 		TotalDistance: totalDistance,
 		TimePath:      timePath,
 		TotalTime:     totalTime,
 	}
 }
-func Navi(req models.NaviReq) {
+
+func Navi(req models.NaviReq) (results PathResults) {
 	// 读取并解析JSON文件
 	graphId := req.GraphId
 	start := req.Start
@@ -284,7 +287,7 @@ func Navi(req models.NaviReq) {
 		}
 	}
 
-	results := calculatePaths(graph, start, target, temp, "Toilet")
+	results = calculatePaths(graph, start, target, temp)
 
 	// 将所有结果保存到一个 JSON 文件中
 	resultsJSON, err := json.MarshalIndent(results, "", "  ")
@@ -296,8 +299,33 @@ func Navi(req models.NaviReq) {
 	os.WriteFile(resultName, resultsJSON, 0644)
 	fmt.Println("All path results saved to " + resultName)
 
+	return
+}
+
+func Scan(req models.ScanReq) (scenics []Point) {
+	graphId := req.GraphId
+	target := req.PresentIdx
+	dist := req.Dist
+	fileName := config.MapPath + "graph-" + strconv.Itoa(graphId) + ".json"
+	jsonFile, err := os.Open(fileName)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	defer jsonFile.Close()
+
+	byteValue, _ := io.ReadAll(jsonFile)
+
+	var graph Graph
+	if err := json.Unmarshal(byteValue, &graph); err != nil {
+		fmt.Println("Error parsing JSON:", err)
+		return
+	}
+	pointsJSON, _ := json.MarshalIndent(graph.Points, "", "  ")
+	mapName := config.MapPath + "map-" + strconv.Itoa(graphId) + ".json"
+	os.WriteFile(mapName, pointsJSON, 0644)
 	// 提取并排序终点相连的景点
-	scenics := extractAndSortScenic(&graph, target, 1500)
+	scenics = extractAndSortScenic(&graph, target, float64(dist))
 
 	scenicJSON, _ := json.MarshalIndent(scenics, "", "  ")
 	scenicName := config.MapPath + "scenic-" + strconv.Itoa(graphId) + ".json"
@@ -306,4 +334,6 @@ func Navi(req models.NaviReq) {
 	for _, scenic := range scenics {
 		fmt.Printf("Name: %s, Rating: %.1f\n", scenic.Name, scenic.Rating)
 	}
+
+	return
 }

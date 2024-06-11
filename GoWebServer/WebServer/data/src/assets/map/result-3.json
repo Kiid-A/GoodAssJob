@@ -1,0 +1,38 @@
+{
+  "closestRes": {
+    "name": "",
+    "index": -1,
+    "x": 0,
+    "y": 0,
+    "type": "None",
+    "rating": 0,
+    "tag": ""
+  },
+  "closest_toi": {
+    "name": "",
+    "index": -1,
+    "x": 0,
+    "y": 0,
+    "type": "None",
+    "rating": 0,
+    "tag": ""
+  },
+  "path": [
+    1,
+    28,
+    46,
+    45,
+    26,
+    2
+  ],
+  "total_distance": 229,
+  "time_path": [
+    1,
+    28,
+    46,
+    45,
+    26,
+    2
+  ],
+  "total_time": 11259
+}

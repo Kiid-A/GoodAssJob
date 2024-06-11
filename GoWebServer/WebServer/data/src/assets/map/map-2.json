@@ -1,0 +1,389 @@
+[
+    {
+        "name": "1",
+        "index": 0,
+        "x": 245,
+        "y": 253,
+        "type": "Intersection",
+        "rating": 0.0,
+        "tag": "No tag"
+    },
+    {
+        "name": "2",
+        "index": 1,
+        "x": 378,
+        "y": 250,
+        "type": "Intersection",
+        "rating": 0.0,
+        "tag": "No tag"
+    },
+    {
+        "name": "3",
+        "index": 2,
+        "x": 595,
+        "y": 255,
+        "type": "Intersection",
+        "rating": 0.0,
+        "tag": "No tag"
+    },
+    {
+        "name": "4",
+        "index": 3,
+        "x": 809,
+        "y": 253,
+        "type": "Intersection",
+        "rating": 0.0,
+        "tag": "No tag"
+    },
+    {
+        "name": "5",
+        "index": 4,
+        "x": 374,
+        "y": 417,
+        "type": "Intersection",
+        "rating": 0.0,
+        "tag": "No tag"
+    },
+    {
+        "name": "6",
+        "index": 5,
+        "x": 596,
+        "y": 415,
+        "type": "Intersection",
+        "rating": 0.0,
+        "tag": "No tag"
+    },
+    {
+        "name": "7",
+        "index": 6,
+        "x": 376,
+        "y": 490,
+        "type": "Intersection",
+        "rating": 0.0,
+        "tag": "No tag"
+    },
+    {
+        "name": "8",
+        "index": 7,
+        "x": 589,
+        "y": 489,
+        "type": "Intersection",
+        "rating": 0.0,
+        "tag": "No tag"
+    },
+    {
+        "name": "9",
+        "index": 8,
+        "x": 810,
+        "y": 491,
+        "type": "Intersection",
+        "rating": 0.0,
+        "tag": "No tag"
+    },
+    {
+        "name": "10",
+        "index": 9,
+        "x": 377,
+        "y": 158,
+        "type": "Intersection",
+        "rating": 0.0,
+        "tag": "No tag"
+    },
+    {
+        "name": "11",
+        "index": 10,
+        "x": 379,
+        "y": 120,
+        "type": "Intersection",
+        "rating": 0.0,
+        "tag": "No tag"
+    },
+    {
+        "name": "12",
+        "index": 11,
+        "x": 480,
+        "y": 119,
+        "type": "Intersection",
+        "rating": 0.0,
+        "tag": "No tag"
+    },
+    {
+        "name": "13",
+        "index": 12,
+        "x": 375,
+        "y": 69,
+        "type": "Intersection",
+        "rating": 0.0,
+        "tag": "No tag"
+    },
+    {
+        "name": "14",
+        "index": 13,
+        "x": 593,
+        "y": 120,
+        "type": "Intersection",
+        "rating": 0.0,
+        "tag": "No tag"
+    },
+    {
+        "name": "15",
+        "index": 14,
+        "x": 808,
+        "y": 416,
+        "type": "Intersection",
+        "rating": 0.0,
+        "tag": "No tag"
+    },
+    {
+        "name": "16",
+        "index": 15,
+        "x": 480,
+        "y": 255,
+        "type": "Intersection",
+        "rating": 0.0,
+        "tag": "No tag"
+    },
+    {
+        "name": "17",
+        "index": 16,
+        "x": 249,
+        "y": 118,
+        "type": "Intersection",
+        "rating": 0.0,
+        "tag": "No tag"
+    },
+    {
+        "name": "19",
+        "index": 17,
+        "x": 376,
+        "y": 539,
+        "type": "Intersection",
+        "rating": 0.0,
+        "tag": "No tag"
+    },
+    {
+        "name": "North",
+        "index": 18,
+        "x": 445,
+        "y": 537,
+        "type": "Restaurant",
+        "rating": 3.9,
+        "tag": "high_cost_performance\n"
+    },
+    {
+        "name": "library",
+        "index": 19,
+        "x": 692,
+        "y": 120,
+        "type": "Office_buildings",
+        "rating": 0.0,
+        "tag": "No tag"
+    },
+    {
+        "name": "Comprehensive_teaching",
+        "index": 20,
+        "x": 482,
+        "y": 335,
+        "type": "Teaching_buildings",
+        "rating": 0.0,
+        "tag": "No tag"
+    },
+    {
+        "name": "21",
+        "index": 21,
+        "x": 705,
+        "y": 253,
+        "type": "Intersection",
+        "rating": 0.0,
+        "tag": "No tag"
+    },
+    {
+        "name": "Experimental_teaching ",
+        "index": 22,
+        "x": 705,
+        "y": 328,
+        "type": "Teaching_buildings",
+        "rating": 0.0,
+        "tag": "No tag"
+    },
+    {
+        "name": "22",
+        "index": 23,
+        "x": 809,
+        "y": 333,
+        "type": "Intersection",
+        "rating": 0.0,
+        "tag": "No tag"
+    },
+    {
+        "name": "23",
+        "index": 24,
+        "x": 886,
+        "y": 251,
+        "type": "Intersection",
+        "rating": 0.0,
+        "tag": "No tag"
+    },
+    {
+        "name": "S1",
+        "index": 25,
+        "x": 895,
+        "y": 289,
+        "type": "Teaching_buildings",
+        "rating": 0.0,
+        "tag": "No tag"
+    },
+    {
+        "name": "S3",
+        "index": 26,
+        "x": 851,
+        "y": 424,
+        "type": "Teaching_buildings",
+        "rating": 0.0,
+        "tag": "No tag"
+    },
+    {
+        "name": "the_student_center",
+        "index": 27,
+        "x": 531,
+        "y": 161,
+        "type": "Office_buildings",
+        "rating": 0.0,
+        "tag": "No tag"
+    },
+    {
+        "name": "25",
+        "index": 28,
+        "x": 533,
+        "y": 122,
+        "type": "Intersection",
+        "rating": 0.0,
+        "tag": "No tag"
+    },
+    {
+        "name": "Student",
+        "index": 29,
+        "x": 424,
+        "y": 160,
+        "type": "Restaurant",
+        "rating": 0.0,
+        "tag": "No tag"
+    },
+    {
+        "name": "Teacher",
+        "index": 30,
+        "x": 426,
+        "y": 68,
+        "type": "Restaurant",
+        "rating": 4.1,
+        "tag": "No tag"
+    },
+    {
+        "name": "25",
+        "index": 31,
+        "x": 377,
+        "y": 30,
+        "type": "Intersection",
+        "rating": 0.0,
+        "tag": "No tag"
+    },
+    {
+        "name": "29",
+        "index": 32,
+        "x": 528,
+        "y": 25,
+        "type": "Intersection",
+        "rating": 0.0,
+        "tag": "No tag"
+    },
+    {
+        "name": "30",
+        "index": 33,
+        "x": 482,
+        "y": 29,
+        "type": "Hospital",
+        "rating": 0.0,
+        "tag": "No tag"
+    },
+    {
+        "name": "31",
+        "index": 34,
+        "x": 483,
+        "y": 70,
+        "type": "Intersection",
+        "rating": 0.0,
+        "tag": "No tag"
+    },
+    {
+        "name": "general_office",
+        "index": 35,
+        "x": 532,
+        "y": 74,
+        "type": "Office_buildings",
+        "rating": 0.0,
+        "tag": "No tag"
+    },
+    {
+        "name": "North",
+        "index": 36,
+        "x": 594,
+        "y": 621,
+        "type": "Door",
+        "rating": 0.0,
+        "tag": "No tag"
+    },
+    {
+        "name": "50",
+        "index": 37,
+        "x": 446,
+        "y": 491,
+        "type": "Intersection",
+        "rating": 0.0,
+        "tag": "No tag"
+    },
+    {
+        "name": "West",
+        "index": 38,
+        "x": 6,
+        "y": 256,
+        "type": "Intersection",
+        "rating": 0.0,
+        "tag": "No tag"
+    },
+    {
+        "name": "Background",
+        "index": 39,
+        "x": 184,
+        "y": 121,
+        "type": "Background",
+        "rating": 0.0,
+        "tag": "No tag"
+    },
+    {
+        "name": "E&D2",
+        "index": 40,
+        "x": 309,
+        "y": 65,
+        "type": "Dormitory",
+        "rating": 0.0,
+        "tag": "No tag"
+    },
+    {
+        "name": "A&B&C&D1",
+        "index": 41,
+        "x": 312,
+        "y": 164,
+        "type": "Dormitory",
+        "rating": 0.0,
+        "tag": "No tag"
+    },
+    {
+        "name": "S1~S6",
+        "index": 42,
+        "x": 315,
+        "y": 421,
+        "type": "Dormitory",
+        "rating": 0.0,
+        "tag": "No tag"
+    }
+]

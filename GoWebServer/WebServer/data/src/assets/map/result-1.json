@@ -1,5 +1,14 @@
 {
-  "closest_object": {
+  "closestRes": {
+    "name": "",
+    "index": -1,
+    "x": 0,
+    "y": 0,
+    "type": "None",
+    "rating": 0,
+    "tag": ""
+  },
+  "closest_toi": {
     "name": "44",
     "index": 8,
     "x": 807,
@@ -21,11 +30,11 @@
   "time_path": [
     1,
     2,
-    1,
+    4,
     3,
     1,
     2,
     8
   ],
-  "total_time": 50182
+  "total_time": 30924
 }

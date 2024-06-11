@@ -24,7 +24,8 @@ type Point struct {
 }
 
 type PathResults struct {
-	ClosestObject *Point `json:"closest_object"`
+	ClosestRes    *Point `json:"closestRes"`
+	ClosestToi    *Point `json:"closest_toi"`
 	Path          []int  `json:"path"`
 	TotalDistance int    `json:"total_distance"`
 	TimePath      []int  `json:"time_path"`

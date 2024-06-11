@@ -1,12 +1,14 @@
 package controllers
 
 import (
+	"encoding/json"
 	"fmt"
 	config "gowebserver/WebServer/common"
 	"gowebserver/WebServer/common/navi"
 	recommend "gowebserver/WebServer/common/rcmd"
 	models "gowebserver/WebServer/model"
 	"net/http"
+	"os"
 	"strconv"
 	"strings"
 
@@ -27,10 +29,40 @@ func (mc *MapController) LoadMap(e *gin.Engine) {
 	e.GET("/api/map/search", mc.searchMap)
 	e.GET("/api/map/:id/jump", mc.jump)
 	e.POST("/api/map", mc.postMap)
+	e.POST("/api/map/:id/search", mc.searchSpot)
 	e.POST("/api/map/:id/img", mc.postImg)
 	e.POST("/api/map/:id/json", mc.postJSON)
 	e.POST("/api/map/:id/rate", mc.rateMap)
 	e.POST("/api/map/:id/navi", mc.navi)
+	e.POST("/api/map/:id/scan", mc.scan)
+}
+
+func (mc *MapController) searchSpot(c *gin.Context) {
+	q := c.Query("q")
+	id := c.Param("id")
+
+	mapsName := config.MapPath + "map-" + id + ".json"
+
+	bytes, err := os.ReadFile(mapsName)
+	if err != nil {
+		c.JSON(500, gin.H{"err": "Invalid map_id"})
+		return
+	}
+	m := &[]navi.Point{}
+	err = json.Unmarshal(bytes, m)
+	if err != nil {
+		c.JSON(500, gin.H{"err": "Failed to parse json"})
+		return
+	}
+
+	ret := &[]navi.Point{}
+	for _, p := range *m {
+		if strings.Contains(p.Name, q) {
+			*ret = append(*ret, p)
+		}
+	}
+
+	c.JSON(200, ret)
 }
 
 func (mc *MapController) getRelate(c *gin.Context) {
@@ -206,7 +238,24 @@ func (mc *MapController) getMap(c *gin.Context) {
 
 	fmt.Println("from db ", maps.Id, maps.Name)
 
-	c.JSON(200, maps)
+	mapsName := config.MapPath + "map-" + maps.Id + ".json"
+
+	bytes, err := os.ReadFile(mapsName)
+	if err != nil {
+		c.JSON(500, gin.H{"err": "Invalid map_id"})
+		return
+	}
+	m := &[]navi.Point{}
+	err = json.Unmarshal(bytes, m)
+	if err != nil {
+		c.JSON(500, gin.H{"err": "Failed to parse json"})
+		return
+	}
+
+	c.JSON(200, gin.H{
+		"map":   maps,
+		"spots": m,
+	})
 	maps.Clicks += 1
 	if err := mc.DB.Model(&maps).Update("clicks", maps.Clicks).Error; err != nil {
 		c.JSON(http.StatusUnauthorized, gin.H{"error": "cannot update clicks"})
@@ -306,12 +355,26 @@ func (mc *MapController) navi(c *gin.Context) {
 	//  	   distfirst{same}
 	//         facility: {toilet: idx, resturant: idx}
 	var naviReq models.NaviReq
-	// id := c.Param("id")
 	c.BindJSON(&naviReq)
 	var err error
 	naviReq.GraphId, err = strconv.Atoi(c.Param("id"))
 	if err != nil {
 		c.JSON(500, gin.H{"error": "navi err"})
 	}
-	navi.Navi(naviReq)
+	results := navi.Navi(naviReq)
+
+	c.JSON(200, results)
+}
+
+func (mc *MapController) scan(c *gin.Context) {
+	var scanReq models.ScanReq
+	c.BindJSON(&scanReq)
+	var err error
+	scanReq.GraphId, err = strconv.Atoi(c.Param("id"))
+	if err != nil {
+		c.JSON(500, gin.H{"error": "scan err"})
+	}
+	results := navi.Scan(scanReq)
+
+	c.JSON(200, results)
 }

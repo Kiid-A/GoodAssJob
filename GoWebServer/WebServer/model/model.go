@@ -91,6 +91,12 @@ type NaviReq struct {
 	Target  int   `json:"target"`
 }
 
+type ScanReq struct {
+	GraphId    int `json:"graph_id"`
+	PresentIdx int `json:"p_idx"`
+	Dist       int `json:"dist"`
+}
+
 type TimeFirst struct {
 	Time float64 `json:"time"`
 	Dist float64 `json:"dist"`

@@ -1,0 +1,1056 @@
+{
+    "name": "graph",
+    "adjList": {
+        "0": [
+            {
+                "destination": 30,
+                "weight": 22
+            }
+        ],
+        "1": [
+            {
+                "destination": 28,
+                "weight": 43
+            }
+        ],
+        "2": [
+            {
+                "destination": 26,
+                "weight": 43
+            },
+            {
+                "destination": 24,
+                "weight": 149
+            }
+        ],
+        "3": [
+            {
+                "destination": 38,
+                "weight": 45
+            }
+        ],
+        "4": [
+            {
+                "destination": 15,
+                "weight": 41
+            }
+        ],
+        "5": [
+            {
+                "destination": 40,
+                "weight": 38
+            }
+        ],
+        "6": [
+            {
+                "destination": 8,
+                "weight": 17
+            },
+            {
+                "destination": 10,
+                "weight": 78
+            },
+            {
+                "destination": 39,
+                "weight": 62
+            }
+        ],
+        "7": [
+            {
+                "destination": 13,
+                "weight": 77
+            },
+            {
+                "destination": 8,
+                "weight": 216
+            },
+            {
+                "destination": 11,
+                "weight": 41
+            }
+        ],
+        "8": [
+            {
+                "destination": 7,
+                "weight": 216
+            },
+            {
+                "destination": 6,
+                "weight": 17
+            },
+            {
+                "destination": 9,
+                "weight": 71
+            }
+        ],
+        "9": [
+            {
+                "destination": 10,
+                "weight": 26
+            },
+            {
+                "destination": 8,
+                "weight": 71
+            },
+            {
+                "destination": 41,
+                "weight": 28
+            }
+        ],
+        "10": [
+            {
+                "destination": 6,
+                "weight": 78
+            },
+            {
+                "destination": 9,
+                "weight": 26
+            },
+            {
+                "destination": 17,
+                "weight": 61
+            }
+        ],
+        "11": [
+            {
+                "destination": 7,
+                "weight": 41
+            },
+            {
+                "destination": 42,
+                "weight": 50
+            },
+            {
+                "destination": 48,
+                "weight": 100
+            }
+        ],
+        "12": [
+            {
+                "destination": 47,
+                "weight": 99
+            },
+            {
+                "destination": 27,
+                "weight": 115
+            },
+            {
+                "destination": 12,
+                "weight": 0
+            },
+            {
+                "destination": 12,
+                "weight": 0
+            },
+            {
+                "destination": 48,
+                "weight": 107
+            }
+        ],
+        "13": [
+            {
+                "destination": 14,
+                "weight": 44
+            },
+            {
+                "destination": 7,
+                "weight": 77
+            }
+        ],
+        "14": [
+            {
+                "destination": 15,
+                "weight": 75
+            },
+            {
+                "destination": 13,
+                "weight": 44
+            }
+        ],
+        "15": [
+            {
+                "destination": 4,
+                "weight": 41
+            },
+            {
+                "destination": 14,
+                "weight": 75
+            },
+            {
+                "destination": 19,
+                "weight": 48
+            }
+        ],
+        "16": [
+            {
+                "destination": 37,
+                "weight": 147
+            },
+            {
+                "destination": 38,
+                "weight": 79
+            },
+            {
+                "destination": 47,
+                "weight": 89
+            },
+            {
+                "destination": 49,
+                "weight": 160
+            }
+        ],
+        "17": [
+            {
+                "destination": 10,
+                "weight": 61
+            },
+            {
+                "destination": 18,
+                "weight": 66
+            }
+        ],
+        "18": [
+            {
+                "destination": 50,
+                "weight": 56
+            },
+            {
+                "destination": 17,
+                "weight": 66
+            }
+        ],
+        "19": [
+            {
+                "destination": 20,
+                "weight": 45
+            },
+            {
+                "destination": 15,
+                "weight": 48
+            }
+        ],
+        "20": [
+            {
+                "destination": 19,
+                "weight": 45
+            },
+            {
+                "destination": 21,
+                "weight": 47
+            }
+        ],
+        "21": [
+            {
+                "destination": 20,
+                "weight": 47
+            },
+            {
+                "destination": 22,
+                "weight": 70
+            }
+        ],
+        "22": [
+            {
+                "destination": 21,
+                "weight": 70
+            },
+            {
+                "destination": 23,
+                "weight": 107
+            }
+        ],
+        "23": [
+            {
+                "destination": 22,
+                "weight": 107
+            },
+            {
+                "destination": 24,
+                "weight": 86
+            }
+        ],
+        "24": [
+            {
+                "destination": 23,
+                "weight": 86
+            },
+            {
+                "destination": 25,
+                "weight": 33
+            },
+            {
+                "destination": 2,
+                "weight": 149
+            }
+        ],
+        "25": [
+            {
+                "destination": 24,
+                "weight": 33
+            },
+            {
+                "destination": 26,
+                "weight": 121
+            },
+            {
+                "destination": 44,
+                "weight": 125
+            }
+        ],
+        "26": [
+            {
+                "destination": 25,
+                "weight": 121
+            },
+            {
+                "destination": 2,
+                "weight": 43
+            },
+            {
+                "destination": 45,
+                "weight": 60
+            }
+        ],
+        "27": [
+            {
+                "destination": 44,
+                "weight": 38
+            },
+            {
+                "destination": 12,
+                "weight": 115
+            }
+        ],
+        "28": [
+            {
+                "destination": 46,
+                "weight": 20
+            },
+            {
+                "destination": 1,
+                "weight": 43
+            },
+            {
+                "destination": 29,
+                "weight": 55
+            },
+            {
+                "destination": 32,
+                "weight": 55
+            }
+        ],
+        "29": [
+            {
+                "destination": 28,
+                "weight": 55
+            },
+            {
+                "destination": 30,
+                "weight": 30
+            }
+        ],
+        "30": [
+            {
+                "destination": 29,
+                "weight": 30
+            },
+            {
+                "destination": 0,
+                "weight": 22
+            },
+            {
+                "destination": 31,
+                "weight": 80
+            }
+        ],
+        "31": [
+            {
+                "destination": 30,
+                "weight": 80
+            },
+            {
+                "destination": 32,
+                "weight": 60
+            },
+            {
+                "destination": 34,
+                "weight": 54
+            }
+        ],
+        "32": [
+            {
+                "destination": 31,
+                "weight": 60
+            },
+            {
+                "destination": 28,
+                "weight": 55
+            },
+            {
+                "destination": 33,
+                "weight": 43
+            }
+        ],
+        "33": [
+            {
+                "destination": 32,
+                "weight": 43
+            },
+            {
+                "destination": 35,
+                "weight": 73
+            },
+            {
+                "destination": 37,
+                "weight": 109
+            }
+        ],
+        "34": [
+            {
+                "destination": 35,
+                "weight": 47
+            },
+            {
+                "destination": 31,
+                "weight": 54
+            }
+        ],
+        "35": [
+            {
+                "destination": 33,
+                "weight": 73
+            },
+            {
+                "destination": 34,
+                "weight": 47
+            },
+            {
+                "destination": 36,
+                "weight": 76
+            }
+        ],
+        "36": [
+            {
+                "destination": 35,
+                "weight": 76
+            },
+            {
+                "destination": 37,
+                "weight": 47
+            },
+            {
+                "destination": 38,
+                "weight": 101
+            }
+        ],
+        "37": [
+            {
+                "destination": 36,
+                "weight": 47
+            },
+            {
+                "destination": 33,
+                "weight": 109
+            },
+            {
+                "destination": 16,
+                "weight": 147
+            }
+        ],
+        "38": [
+            {
+                "destination": 36,
+                "weight": 101
+            },
+            {
+                "destination": 3,
+                "weight": 45
+            },
+            {
+                "destination": 16,
+                "weight": 79
+            }
+        ],
+        "39": [
+            {
+                "destination": 40,
+                "weight": 83
+            },
+            {
+                "destination": 6,
+                "weight": 62
+            }
+        ],
+        "40": [
+            {
+                "destination": 5,
+                "weight": 38
+            },
+            {
+                "destination": 39,
+                "weight": 83
+            }
+        ],
+        "41": [
+            {
+                "destination": 9,
+                "weight": 28
+            },
+            {
+                "destination": 42,
+                "weight": 131
+            }
+        ],
+        "42": [
+            {
+                "destination": 11,
+                "weight": 50
+            },
+            {
+                "destination": 43,
+                "weight": 17
+            },
+            {
+                "destination": 41,
+                "weight": 131
+            }
+        ],
+        "43": [
+            {
+                "destination": 42,
+                "weight": 17
+            }
+        ],
+        "44": [
+            {
+                "destination": 27,
+                "weight": 38
+            },
+            {
+                "destination": 25,
+                "weight": 125
+            }
+        ],
+        "45": [
+            {
+                "destination": 26,
+                "weight": 60
+            },
+            {
+                "destination": 46,
+                "weight": 63
+            }
+        ],
+        "46": [
+            {
+                "destination": 45,
+                "weight": 63
+            },
+            {
+                "destination": 28,
+                "weight": 20
+            }
+        ],
+        "47": [
+            {
+                "destination": 16,
+                "weight": 89
+            },
+            {
+                "destination": 12,
+                "weight": 99
+            }
+        ],
+        "48": [
+            {
+                "destination": 12,
+                "weight": 107
+            },
+            {
+                "destination": 11,
+                "weight": 100
+            }
+        ],
+        "49": [
+            {
+                "destination": 16,
+                "weight": 160
+            },
+            {
+                "destination": 50,
+                "weight": 181
+            }
+        ],
+        "50": [
+            {
+                "destination": 49,
+                "weight": 181
+            },
+            {
+                "destination": 18,
+                "weight": 56
+            }
+        ]
+    },
+    "points": [
+        {
+            "name": "Northwest_gate",
+            "index": 0,
+            "x": 46,
+            "y": 209,
+            "type": "Door",
+            "rating": 0.0,
+            "tag": "No tag"
+        },
+        {
+            "name": "West_gate",
+            "index": 1,
+            "x": 47,
+            "y": 290,
+            "type": "Door",
+            "rating": 0.0,
+            "tag": "No tag"
+        },
+        {
+            "name": "Southwest_gate",
+            "index": 2,
+            "x": 49,
+            "y": 452,
+            "type": "Door",
+            "rating": 0.0,
+            "tag": "No tag"
+        },
+        {
+            "name": "North_gate",
+            "index": 3,
+            "x": 417,
+            "y": 143,
+            "type": "Door",
+            "rating": 0.0,
+            "tag": "No tag"
+        },
+        {
+            "name": "South_gate",
+            "index": 4,
+            "x": 518,
+            "y": 567,
+            "type": "Door",
+            "rating": 0.0,
+            "tag": "No tag"
+        },
+        {
+            "name": "East_gate",
+            "index": 5,
+            "x": 1076,
+            "y": 551,
+            "type": "Intersection",
+            "rating": 0.0,
+            "tag": "No tag"
+        },
+        {
+            "name": "1",
+            "index": 6,
+            "x": 920,
+            "y": 467,
+            "type": "Intersection",
+            "rating": 0.0,
+            "tag": "No tag"
+        },
+        {
+            "name": "2",
+            "index": 7,
+            "x": 687,
+            "y": 471,
+            "type": "Intersection",
+            "rating": 0.0,
+            "tag": "No tag"
+        },
+        {
+            "name": "3",
+            "index": 8,
+            "x": 903,
+            "y": 469,
+            "type": "Intersection",
+            "rating": 0.0,
+            "tag": "No tag"
+        },
+        {
+            "name": "4",
+            "index": 9,
+            "x": 867,
+            "y": 407,
+            "type": "Intersection",
+            "rating": 0.0,
+            "tag": "No tag"
+        },
+        {
+            "name": "5",
+            "index": 10,
+            "x": 890,
+            "y": 394,
+            "type": "Intersection",
+            "rating": 0.0,
+            "tag": "No tag"
+        },
+        {
+            "name": "6",
+            "index": 11,
+            "x": 671,
+            "y": 433,
+            "type": "Intersection",
+            "rating": 0.0,
+            "tag": "No tag"
+        },
+        {
+            "name": "7",
+            "index": 12,
+            "x": 465,
+            "y": 417,
+            "type": "Intersection",
+            "rating": 0.0,
+            "tag": "No tag"
+        },
+        {
+            "name": "8",
+            "index": 13,
+            "x": 617,
+            "y": 504,
+            "type": "Intersection",
+            "rating": 0.0,
+            "tag": "No tag"
+        },
+        {
+            "name": "9",
+            "index": 14,
+            "x": 595,
+            "y": 543,
+            "type": "Intersection",
+            "rating": 0.0,
+            "tag": "No tag"
+        },
+        {
+            "name": "10",
+            "index": 15,
+            "x": 521,
+            "y": 526,
+            "type": "Intersection",
+            "rating": 0.0,
+            "tag": "No tag"
+        },
+        {
+            "name": "11",
+            "index": 16,
+            "x": 429,
+            "y": 231,
+            "type": "Intersection",
+            "rating": 0.0,
+            "tag": "No tag"
+        },
+        {
+            "name": "12",
+            "index": 17,
+            "x": 864,
+            "y": 338,
+            "type": "Intersection",
+            "rating": 0.0,
+            "tag": "No tag"
+        },
+        {
+            "name": "13",
+            "index": 18,
+            "x": 823,
+            "y": 286,
+            "type": "Intersection",
+            "rating": 0.0,
+            "tag": "No tag"
+        },
+        {
+            "name": "14",
+            "index": 19,
+            "x": 540,
+            "y": 481,
+            "type": "Intersection",
+            "rating": 0.0,
+            "tag": "No tag"
+        },
+        {
+            "name": "15",
+            "index": 20,
+            "x": 495,
+            "y": 477,
+            "type": "Intersection",
+            "rating": 0.0,
+            "tag": "No tag"
+        },
+        {
+            "name": "16",
+            "index": 21,
+            "x": 452,
+            "y": 458,
+            "type": "Intersection",
+            "rating": 0.0,
+            "tag": "No tag"
+        },
+        {
+            "name": "17",
+            "index": 22,
+            "x": 386,
+            "y": 484,
+            "type": "Intersection",
+            "rating": 0.0,
+            "tag": "No tag"
+        },
+        {
+            "name": "18",
+            "index": 23,
+            "x": 280,
+            "y": 502,
+            "type": "Intersection",
+            "rating": 0.0,
+            "tag": "No tag"
+        },
+        {
+            "name": "19",
+            "index": 24,
+            "x": 195,
+            "y": 485,
+            "type": "Intersection",
+            "rating": 0.0,
+            "tag": "No tag"
+        },
+        {
+            "name": "20",
+            "index": 25,
+            "x": 196,
+            "y": 452,
+            "type": "Intersection",
+            "rating": 0.0,
+            "tag": "No tag"
+        },
+        {
+            "name": "21",
+            "index": 26,
+            "x": 79,
+            "y": 421,
+            "type": "Intersection",
+            "rating": 0.0,
+            "tag": "No tag"
+        },
+        {
+            "name": "22",
+            "index": 27,
+            "x": 356,
+            "y": 454,
+            "type": "Intersection",
+            "rating": 0.0,
+            "tag": "No tag"
+        },
+        {
+            "name": "23",
+            "index": 28,
+            "x": 90,
+            "y": 281,
+            "type": "Intersection",
+            "rating": 0.0,
+            "tag": "No tag"
+        },
+        {
+            "name": "24",
+            "index": 29,
+            "x": 53,
+            "y": 240,
+            "type": "Intersection",
+            "rating": 0.0,
+            "tag": "No tag"
+        },
+        {
+            "name": "25",
+            "index": 30,
+            "x": 68,
+            "y": 214,
+            "type": "Intersection",
+            "rating": 0.0,
+            "tag": "No tag"
+        },
+        {
+            "name": "26",
+            "index": 31,
+            "x": 146,
+            "y": 193,
+            "type": "Intersection",
+            "rating": 0.0,
+            "tag": "No tag"
+        },
+        {
+            "name": "27",
+            "index": 32,
+            "x": 138,
+            "y": 253,
+            "type": "Intersection",
+            "rating": 0.0,
+            "tag": "No tag"
+        },
+        {
+            "name": "28",
+            "index": 33,
+            "x": 181,
+            "y": 252,
+            "type": "Intersection",
+            "rating": 0.0,
+            "tag": "No tag"
+        },
+        {
+            "name": "29",
+            "index": 34,
+            "x": 173,
+            "y": 146,
+            "type": "Intersection",
+            "rating": 0.0,
+            "tag": "No tag"
+        },
+        {
+            "name": "30",
+            "index": 35,
+            "x": 204,
+            "y": 182,
+            "type": "Intersection",
+            "rating": 0.0,
+            "tag": "No tag"
+        },
+        {
+            "name": "31",
+            "index": 36,
+            "x": 279,
+            "y": 165,
+            "type": "Intersection",
+            "rating": 0.0,
+            "tag": "No tag"
+        },
+        {
+            "name": "32",
+            "index": 37,
+            "x": 283,
+            "y": 212,
+            "type": "Intersection",
+            "rating": 0.0,
+            "tag": "No tag"
+        },
+        {
+            "name": "33",
+            "index": 38,
+            "x": 380,
+            "y": 169,
+            "type": "Intersection",
+            "rating": 0.0,
+            "tag": "No tag"
+        },
+        {
+            "name": "Cherry_Blossom_Trail",
+            "index": 39,
+            "x": 973,
+            "y": 501,
+            "type": "Scenic",
+            "rating": 3.9,
+            "tag": "Culture"
+        },
+        {
+            "name": "A",
+            "index": 40,
+            "x": 1038,
+            "y": 554,
+            "type": "Toilet",
+            "rating": 0.0,
+            "tag": "No tag"
+        },
+        {
+            "name": "South_Lake",
+            "index": 41,
+            "x": 847,
+            "y": 387,
+            "type": "Scenic",
+            "rating": 4.1,
+            "tag": "Culture"
+        },
+        {
+            "name": "Scenic_Avenue",
+            "index": 42,
+            "x": 721,
+            "y": 426,
+            "type": "Scenic",
+            "rating": 4.1,
+            "tag": "Culture"
+        },
+        {
+            "name": "B",
+            "index": 43,
+            "x": 717,
+            "y": 443,
+            "type": "Toilet",
+            "rating": 0.0,
+            "tag": "No tag"
+        },
+        {
+            "name": "C",
+            "index": 44,
+            "x": 320,
+            "y": 468,
+            "type": "Toilet",
+            "rating": 0.0,
+            "tag": "No tag"
+        },
+        {
+            "name": "Lakeview_Bridge",
+            "index": 45,
+            "x": 84,
+            "y": 361,
+            "type": "Scenic",
+            "rating": 4.2,
+            "tag": "Cherry"
+        },
+        {
+            "name": "Friendship_Cherry_Grove",
+            "index": 46,
+            "x": 79,
+            "y": 298,
+            "type": "Scenic",
+            "rating": 4.2,
+            "tag": "Cherry"
+        },
+        {
+            "name": "Mid-Causeway_Bridge",
+            "index": 47,
+            "x": 441,
+            "y": 320,
+            "type": "Scenic",
+            "rating": 4.8,
+            "tag": "Cherry"
+        },
+        {
+            "name": "34",
+            "index": 48,
+            "x": 571,
+            "y": 435,
+            "type": "Intersection",
+            "rating": 0.0,
+            "tag": "No tag"
+        },
+        {
+            "name": "40",
+            "index": 49,
+            "x": 589,
+            "y": 245,
+            "type": "Intersection",
+            "rating": 0.0,
+            "tag": "No tag"
+        },
+        {
+            "name": "39",
+            "index": 50,
+            "x": 767,
+            "y": 281,
+            "type": "Intersection",
+            "rating": 0.0,
+            "tag": "No tag"
+        }
+    ]
+}

@@ -41,7 +41,7 @@ func main() {
 
 	r := gin.Default()
 	r.Use(cors.Default())
-	
+
 	// r.Use()
 	r.LoadHTMLGlob("data/src/*.html")
 	r.Static("assets/", "data/src/assets/")
@@ -51,5 +51,5 @@ func main() {
 	ctrl.Ac.LoadArticle(r)
 	ctrl.Mc.LoadMap(r)
 
-	r.Run(":9999")
+	r.Run(":9998")
 }
