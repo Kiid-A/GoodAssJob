@@ -134,7 +134,7 @@ func extractAndSortScenic(graph *Graph, target int, maxDistance float64) []Point
 	targetPoint := graph.Points[target]
 	// 检查图中所有的景点
 	for _, point := range graph.Points {
-		if point.Type == "Scenic" && distance(targetPoint, point) <= maxDistance {
+		if point.Type == "Toilet" && distance(targetPoint, point) <= maxDistance {
 			scenics = append(scenics, point)
 		}
 	}

@@ -372,9 +372,9 @@ func (mc *MapController) scan(c *gin.Context) {
 	var err error
 	scanReq.GraphId, err = strconv.Atoi(c.Param("id"))
 	if err != nil {
-		c.JSON(500, gin.H{"error": "scan err"})
+		fmt.Println("ai")
 	}
 	results := navi.Scan(scanReq)
-
+	
 	c.JSON(200, results)
 }

@@ -1,56 +1,11 @@
 [
   {
-    "name": "Mid-Causeway_Bridge",
-    "index": 47,
-    "x": 441,
-    "y": 320,
-    "type": "Scenic",
-    "rating": 4.8,
-    "tag": "Cherry"
-  },
-  {
-    "name": "Lakeview_Bridge",
-    "index": 45,
-    "x": 84,
-    "y": 361,
-    "type": "Scenic",
-    "rating": 4.2,
-    "tag": "Cherry"
-  },
-  {
-    "name": "Friendship_Cherry_Grove",
-    "index": 46,
-    "x": 79,
-    "y": 298,
-    "type": "Scenic",
-    "rating": 4.2,
-    "tag": "Cherry"
-  },
-  {
-    "name": "South_Lake",
-    "index": 41,
-    "x": 847,
-    "y": 387,
-    "type": "Scenic",
-    "rating": 4.1,
-    "tag": "Culture"
-  },
-  {
-    "name": "Scenic_Avenue",
-    "index": 42,
-    "x": 721,
-    "y": 426,
-    "type": "Scenic",
-    "rating": 4.1,
-    "tag": "Culture"
-  },
-  {
-    "name": "Cherry_Blossom_Trail",
-    "index": 39,
-    "x": 973,
-    "y": 501,
-    "type": "Scenic",
-    "rating": 3.9,
-    "tag": "Culture"
+    "name": "C",
+    "index": 44,
+    "x": 320,
+    "y": 468,
+    "type": "Toilet",
+    "rating": 0,
+    "tag": "No tag"
   }
 ]
