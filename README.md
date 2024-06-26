@@ -1,2 +1,2 @@
 # GoodAssJob
-BUPT 2024 Course Design of Data Structure and Algorithm
+BUPT 2024 Spring Course Design of Data Structure and Algorithm
